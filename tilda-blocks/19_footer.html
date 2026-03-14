@@ -1,0 +1,131 @@
+<!-- БЛОК 19: Footer -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-footer {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 40px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 48px;
+}
+.bimpro-footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.bimpro-footer-logo { height: 40px; width: auto; }
+.bimpro-footer-info {
+  color: #cfcece;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.bimpro-footer-copy {
+  font-size: 12px;
+  color: rgba(207,206,206,0.4);
+}
+.bimpro-footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.bimpro-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+}
+.bimpro-footer-phone {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 32px;
+  color: #e64317;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.bimpro-footer-phone:hover { color: #fff; }
+.bimpro-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.bimpro-footer-social a {
+  display: block;
+  transition: opacity 0.2s;
+}
+.bimpro-footer-social a:hover { opacity: 0.8; }
+.bimpro-footer-social img { width: 40px; height: 40px; }
+.bimpro-footer-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 9999px;
+  color: #cfcece;
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.bimpro-footer-top:hover {
+  border-color: #e64317;
+  color: #fff;
+}
+.bimpro-footer-privacy {
+  font-size: 12px;
+  color: rgba(207,206,206,0.4);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.bimpro-footer-privacy:hover {
+  color: #cfcece;
+  border-color: rgba(207,206,206,0.4);
+}
+@media (max-width: 768px) {
+  .bimpro-footer-inner { flex-direction: column; align-items: flex-start; }
+  .bimpro-footer-right { align-items: flex-start; }
+  .bimpro-footer-links { align-items: flex-start; }
+}
+</style>
+
+<footer class="bimpro-footer">
+  <div class="bimpro-footer-inner">
+    <div class="bimpro-footer-left">
+      <div>
+        <img src="https://static.tildacdn.com/tild3739-3837-4462-b264-376333613836/header_logo.png" alt="BIMPRO" class="bimpro-footer-logo" onerror="this.style.display='none'">
+        <div class="bimpro-footer-info" style="margin-top:16px;">
+          <p>ООО "БИМПРО"</p>
+          <p>ИНН: 7804615060</p>
+        </div>
+      </div>
+      <div class="bimpro-footer-copy">© 2021 - 2026 ООО "БИМПРО", все права защищены</div>
+    </div>
+    <div class="bimpro-footer-right">
+      <div class="bimpro-footer-links">
+        <div class="bimpro-footer-social">
+          <a href="tel:+78122103602" class="bimpro-footer-phone">+7 812 210 36 02</a>
+          <a href="https://t.me/bim_pro" target="_blank" rel="noopener noreferrer">
+            <img src="https://static.tildacdn.com/tild6435-3934-4165-b138-626436613830/___.svg" alt="Telegram">
+          </a>
+        </div>
+        <a href="#" class="bimpro-footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+          Наверх ↑
+        </a>
+      </div>
+      <a href="#" class="bimpro-footer-privacy">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>

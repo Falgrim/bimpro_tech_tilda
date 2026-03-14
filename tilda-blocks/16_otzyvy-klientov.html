@@ -1,0 +1,134 @@
+<!-- БЛОК 16: Отзывы клиентов -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-reviews {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-reviews-header { text-align: center; margin-bottom: 64px; }
+.bimpro-reviews h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.bimpro-reviews-sub { color: #cfcece; max-width: 600px; margin: 0 auto; }
+.bimpro-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.bimpro-reviews-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.bimpro-reviews-card:hover { transform: translateY(-4px); }
+.bimpro-reviews-card-img {
+  width: 100%;
+  aspect-ratio: 905/1280;
+  background: #202020;
+  border-radius: 8px;
+  border: 1px solid rgba(207,206,206,0.1);
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.bimpro-reviews-card:hover .bimpro-reviews-card-img { border-color: rgba(230,67,23,0.5); }
+.bimpro-reviews-card-img .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 24px;
+  box-sizing: border-box;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.bimpro-reviews-card:hover .bimpro-reviews-card-img .logo { opacity: 0; }
+.bimpro-reviews-card-img .scan {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.bimpro-reviews-card:hover .bimpro-reviews-card-img .scan { opacity: 1; }
+.bimpro-reviews-card h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.bimpro-reviews-card:hover h4 { color: #e64317; }
+.bimpro-reviews-card p {
+  font-size: 12px;
+  color: rgba(207,206,206,0.6);
+  text-align: center;
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .bimpro-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<section class="bimpro-reviews">
+  <div class="bimpro-reviews-inner">
+    <div class="bimpro-reviews-header">
+      <h2>Отзывы клиентов</h2>
+      <p class="bimpro-reviews-sub">Нам доверяют лидеры строительного рынка России</p>
+    </div>
+    <div class="bimpro-reviews-grid">
+      <div class="bimpro-reviews-card">
+        <div class="bimpro-reviews-card-img">
+          <img src="https://static.tildacdn.com/tild6530-3134-4136-b736-386637303964/_9051280-11.png" alt="Setl Group" class="logo" onerror="this.style.display='none'">
+          <img src="https://static.tildacdn.com/tild3662-6238-4437-b833-643136663439/review_scan_1.png" alt="Скан отзыва" class="scan" onerror="this.style.display='none'">
+        </div>
+        <h4>Благодарность Setl Group</h4>
+        <p>За успешное внедрение технологий информационного моделирования.</p>
+      </div>
+      <div class="bimpro-reviews-card">
+        <div class="bimpro-reviews-card-img">
+          <img src="https://static.tildacdn.com/tild6334-6433-4631-a631-363333303131/-_9051280-03.png" alt="БМ-ГРУПП" class="logo" onerror="this.style.display='none'">
+          <img src="https://static.tildacdn.com/tild6237-3665-4434-b663-376264353835/review_scan_2.png" alt="Скан отзыва" class="scan" onerror="this.style.display='none'">
+        </div>
+        <h4>Рекомендательное письмо от БМ-ГРУПП</h4>
+        <p>По результатам внедрения BIM-моделирования.</p>
+      </div>
+      <div class="bimpro-reviews-card">
+        <div class="bimpro-reviews-card-img">
+          <img src="https://static.tildacdn.com/tild3637-3066-4436-b461-373630343563/_9051280-08.png" alt="СБК" class="logo" onerror="this.style.display='none'">
+          <img src="https://static.tildacdn.com/tild3139-6462-4663-b438-626135373435/review_scan_3.png" alt="Скан отзыва" class="scan" onerror="this.style.display='none'">
+        </div>
+        <h4>Благодарственное письмо от СБК</h4>
+        <p>За высококвалифицированную работу по разработке дизайна благоустройства и МОП</p>
+      </div>
+      <div class="bimpro-reviews-card">
+        <div class="bimpro-reviews-card-img">
+          <img src="https://static.tildacdn.com/tild3639-6531-4332-b933-343334636336/__9051280-01.png" alt="ГК Первый Трест" class="logo" onerror="this.style.display='none'">
+          <img src="https://static.tildacdn.com/tild3030-3230-4562-a533-323130343437/review_scan_4.png" alt="Скан отзыва" class="scan" onerror="this.style.display='none'">
+        </div>
+        <h4>Благодарственное письмо от ГК «Первый Трест»</h4>
+        <p>За победу в номинации «Лучший строящийся ЖК комфорт-класса Приволжского ФО»</p>
+      </div>
+    </div>
+  </div>
+</section>

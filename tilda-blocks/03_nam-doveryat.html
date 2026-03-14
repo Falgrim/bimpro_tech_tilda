@@ -1,0 +1,232 @@
+<!-- БЛОК 3: Нам доверяют -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-trust {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 80px 0;
+  background: #151515;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-trust-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-trust-header { text-align: center; margin-bottom: 48px; }
+.bimpro-trust h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.bimpro-trust-sub { color: #cfcece; font-weight: 500; }
+.bimpro-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 64px;
+}
+.bimpro-trust-card {
+  background: #1b1b1b;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid rgba(207,206,206,0.1);
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.bimpro-trust-card:hover { border-color: rgba(230,67,23,0.5); }
+.bimpro-trust-avatar {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: #202020;
+  border: 2px solid rgba(230,67,23,0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bimpro-trust-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.bimpro-trust-name {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.bimpro-trust-role {
+  font-size: 12px;
+  color: #cfcece;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.bimpro-trust-awards {
+  padding-top: 40px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-trust-awards-title {
+  font-size: 12px;
+  color: rgba(207,206,206,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.bimpro-trust-awards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.bimpro-trust-award {
+  width: 96px;
+  height: 128px;
+  border: 2px dashed rgba(207,206,206,0.3);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #202020;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: zoom-in;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+.bimpro-trust-award:hover {
+  border-color: #e64317;
+  transform: scale(1.05);
+}
+.bimpro-trust-award img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.bimpro-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.bimpro-lightbox.is-open { display: flex; }
+.bimpro-lightbox-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  background: #1a1a1a;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+.bimpro-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  background: #202020;
+}
+.bimpro-lightbox-header h3 { font-family: 'BebasNeueCustom', sans-serif; font-size: 24px; color: #fff; margin: 0; }
+.bimpro-lightbox-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  color: #cfcece;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.bimpro-lightbox-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.bimpro-lightbox-body {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: #151515;
+}
+.bimpro-lightbox-body img { max-width: 100%; max-height: 70vh; object-fit: contain; }
+@media (max-width: 768px) {
+  .bimpro-trust-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-trust" id="trust">
+  <div class="bimpro-trust-inner">
+    <div class="bimpro-trust-header">
+      <h2>Нам доверяют</h2>
+      <p class="bimpro-trust-sub">Рекомендации и награды государственного уровня</p>
+    </div>
+    <div class="bimpro-trust-grid">
+      <div class="bimpro-trust-card">
+        <div class="bimpro-trust-avatar">
+          <img src="https://static.tildacdn.com/tild3234-6639-4265-a434-633936613839/minister_1.png" alt="Файзуллин И.Э." onerror="this.parentElement.innerHTML='<span style=color:#cfcece;font-size:48px>👤</span>'">
+        </div>
+        <h4 class="bimpro-trust-name">Файзуллин И.Э.</h4>
+        <div style="width:48px;height:1px;background:rgba(230,67,23,0.3);margin:0 auto 16px"></div>
+        <p class="bimpro-trust-role">Министр строительства и ЖКХ</p>
+      </div>
+      <div class="bimpro-trust-card">
+        <div class="bimpro-trust-avatar">
+          <img src="https://static.tildacdn.com/tild3334-3132-4532-b337-363735313531/minister_2.png" alt="Михайлик К.А." onerror="this.parentElement.innerHTML='<span style=color:#cfcece;font-size:48px>👤</span>'">
+        </div>
+        <h4 class="bimpro-trust-name">Михайлик К.А.</h4>
+        <div style="width:48px;height:1px;background:rgba(230,67,23,0.3);margin:0 auto 16px"></div>
+        <p class="bimpro-trust-role">Заместитель министра строительства и ЖКХ</p>
+      </div>
+      <div class="bimpro-trust-card">
+        <div class="bimpro-trust-avatar">
+          <img src="https://static.tildacdn.com/tild6263-3163-4665-a633-306533613836/minister_3.png" alt="Степашин С.В." onerror="this.parentElement.innerHTML='<span style=color:#cfcece;font-size:48px>👤</span>'">
+        </div>
+        <h4 class="bimpro-trust-name">Степашин С.В.</h4>
+        <div style="width:48px;height:1px;background:rgba(230,67,23,0.3);margin:0 auto 16px"></div>
+        <p class="bimpro-trust-role">Председатель общественного совета</p>
+      </div>
+    </div>
+    <div class="bimpro-trust-awards">
+      <h3 class="bimpro-trust-awards-title">Награды и благодарности</h3>
+      <div class="bimpro-trust-awards-grid" id="bimpro-awards-grid">
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild3162-3039-4435-b638-376561663861/2025___2025_10001414.jpg"><img src="https://static.tildacdn.com/tild3162-3039-4435-b638-376561663861/2025___2025_10001414.jpg" alt="Награда 1"></div>
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild6365-6664-4066-b534-323066316338/2023__10001414.jpg"><img src="https://static.tildacdn.com/tild6365-6664-4066-b534-323066316338/2023__10001414.jpg" alt="Награда 2"></div>
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild3539-6463-4239-b066-656666653664/2023_-_10001414.jpg"><img src="https://static.tildacdn.com/tild3539-6463-4239-b066-656666653664/2023_-_10001414.jpg" alt="Награда 3"></div>
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild3864-3631-4637-b034-653138396133/2024__10001414.jpg"><img src="https://static.tildacdn.com/tild3864-3631-4637-b034-653138396133/2024__10001414.jpg" alt="Награда 4"></div>
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild3265-3632-4366-b064-363133316533/2022_--_10001414.jpg"><img src="https://static.tildacdn.com/tild3265-3632-4366-b064-363133316533/2022_--_10001414.jpg" alt="Награда 5"></div>
+        <div class="bimpro-trust-award" data-award-src="https://static.tildacdn.com/tild3132-3765-4166-b938-396564373436/2025__-_10001414.jpg"><img src="https://static.tildacdn.com/tild3132-3765-4166-b938-396564373436/2025__-_10001414.jpg" alt="Награда 6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="bimpro-award-lightbox" class="bimpro-lightbox">
+  <div class="bimpro-lightbox-inner">
+    <div class="bimpro-lightbox-header">
+      <h3>Награда</h3>
+      <button type="button" class="bimpro-lightbox-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-lightbox-body">
+      <img id="bimpro-award-lightbox-img" src="" alt="Награда">
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('bimpro-award-lightbox');
+  var img=document.getElementById('bimpro-award-lightbox-img');
+  var grid=document.getElementById('bimpro-awards-grid');
+  if(!lb||!img||!grid)return;
+  function openAward(src){img.src=src;lb.classList.add('is-open');document.body.style.overflow='hidden';}
+  function closeAward(){lb.classList.remove('is-open');document.body.style.overflow='';}
+  grid.addEventListener('click',function(e){
+    var el=e.target.closest('.bimpro-trust-award');
+    if(el){var s=el.getAttribute('data-award-src');if(s){e.preventDefault();e.stopPropagation();openAward(s);}}
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb)closeAward();});
+  lb.querySelector('.bimpro-lightbox-close').addEventListener('click',closeAward);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAward();});
+})();
+</script>

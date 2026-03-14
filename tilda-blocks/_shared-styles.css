@@ -1,0 +1,52 @@
+/* Общие стили для блоков BIMPRO на Tilda */
+/* Шрифты: OnestCustom, BebasNeueCustom (загружены в библиотеку Tilda) */
+/* Добавьте этот CSS в настройки страницы Tilda: Дополнительно → Свой CSS */
+
+:root {
+  --bimpro-primary: #e64317;
+  --bimpro-dark: #1b1b1b;
+  --bimpro-grey: #cfcece;
+  --bimpro-white: #ffffff;
+  --bimpro-bg: #151515;
+  --bimpro-card: #202020;
+}
+
+.bimpro-body {
+  font-family: 'OnestCustom', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bimpro-dark);
+  color: var(--bimpro-grey);
+  line-height: 1.4;
+}
+
+.bimpro-h1, .bimpro-h2, .bimpro-h3, .bimpro-h4 {
+  font-family: 'BebasNeueCustom', 'Impact', sans-serif;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bimpro-sub {
+  font-family: 'OnestCustom', sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.bimpro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@keyframes bimpro-float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 50px); }
+}
+
+@keyframes bimpro-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bimpro-animate-marquee {
+  animation: bimpro-marquee 40s linear infinite;
+}

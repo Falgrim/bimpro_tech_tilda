@@ -1,0 +1,148 @@
+<!-- БЛОК 6: Решаем любые задачи в BIM -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ОТПРАВКА: Formspree → welcome@bimpro.ru (ID: xaqdkwzv). Поля Name, Phone. -->
+
+<style>
+.bimpro-tasks {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 48px 0 80px;
+  background: #1b1b1b;
+}
+.bimpro-tasks-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-tasks-card {
+  padding: 48px;
+  border-radius: 16px;
+  border: 1px solid rgba(207,206,206,0.2);
+  background: linear-gradient(135deg, #202020, #1b1b1b);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-tasks-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background: rgba(230,67,23,0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.bimpro-tasks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.bimpro-tasks h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.bimpro-tasks-text {
+  color: #cfcece;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.bimpro-tasks-text p { margin-bottom: 16px; }
+.bimpro-tasks-text strong { color: #fff; }
+.bimpro-tasks-form {
+  background: rgba(27,27,27,0.5);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-tasks-form input {
+  width: 100%;
+  background: #151515;
+  border: 1px solid rgba(207,206,206,0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #fff;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.bimpro-tasks-form input::placeholder { color: rgba(207,206,206,0.6); }
+.bimpro-tasks-form input:focus {
+  outline: none;
+  border-color: #e64317;
+}
+.bimpro-tasks-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.bimpro-tasks-form { position: relative; z-index: 10; pointer-events: auto; }
+.bimpro-tasks-form button {
+  width: 100%;
+  padding: 16px;
+  background: #e64317;
+  color: #fff;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 11;
+  transition: background 0.2s;
+}
+.bimpro-tasks-form button:hover { background: #d13a12; }
+.bimpro-tasks-form button:active,
+.bimpro-tasks-form button.bimpro-btn-pressed { background: #b83210 !important; transform: scale(0.97) !important; opacity: 0.95; }
+.bimpro-tasks-form-note {
+  font-size: 12px;
+  color: rgba(207,206,206,0.5);
+  text-align: center;
+  margin-top: 12px;
+}
+.bimpro-form-success {
+  display: none;
+  padding: 20px 0;
+  color: #e64317;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .bimpro-tasks-grid { grid-template-columns: 1fr; }
+  .bimpro-tasks-form-row { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-tasks">
+  <div class="bimpro-tasks-inner">
+    <div class="bimpro-tasks-card">
+      <div class="bimpro-tasks-grid">
+        <div>
+          <h3>РЕШАЕМ ЛЮБЫЕ ЗАДАЧИ В BIM</h3>
+          <div class="bimpro-tasks-text">
+            <p>Не нашли подходящую услугу? Наш опыт позволяет реализовывать проекты любой сложности: от написания уникальных скриптов автоматизации до построения цифровых двойников.</p>
+            <p>Мы проанализируем вашу задачу и предложим оптимальный сценарий работы, который сэкономит ваши ресурсы.</p>
+            <p><strong>Оставьте заявку, и мы обсудим вашу задачу уже в ближайшее время.</strong></p>
+          </div>
+        </div>
+        <iframe name="bimpro-frame-06" style="position:absolute;width:0;height:0;border:0;visibility:hidden;" title=""></iframe>
+        <form id="bimpro-form-06" class="bimpro-tasks-form" action="https://formspree.io/f/xaqdkwzv" method="post" target="bimpro-frame-06">
+          <input type="hidden" name="_subject" value="Заявка: Обсудить задачу (блок 6)">
+          <div class="bimpro-form-fields">
+            <div class="bimpro-tasks-form-row">
+              <input type="text" name="Name" placeholder="Ваше имя" required>
+              <input type="tel" name="Phone" placeholder="+7 (999) 000-00-00" required>
+            </div>
+            <button type="button" class="bimpro-tasks-form-btn" onclick="var f=document.getElementById('bimpro-form-06'),btn=this,fields=f.querySelector('.bimpro-form-fields'),ok=f.querySelector('.bimpro-form-success');if(f&amp;&amp;f.reportValidity()){btn.classList.add('bimpro-btn-pressed');f.submit();if(fields)fields.style.display='none';if(ok){ok.textContent='Заявка отправлена! Мы свяжемся с вами.';ok.style.display='block';}setTimeout(function(){btn.classList.remove('bimpro-btn-pressed');},400);}">Обсудить задачу</button>
+          </div>
+          <div class="bimpro-form-success" style="display:none;">Заявка отправлена! Мы свяжемся с вами.</div>
+          <p class="bimpro-tasks-form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

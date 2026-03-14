@@ -1,0 +1,378 @@
+<!-- БЛОК 10: 3D моделирование -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ID для якоря: #agr -->
+
+<style>
+.bimpro-agr {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-agr-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-agr-header { margin-bottom: 64px; }
+.bimpro-agr-label {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  color: #e64317;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.bimpro-agr h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  line-height: 1.2;
+}
+.bimpro-agr-block {
+  background: #202020;
+  border: 1px solid rgba(207,206,206,0.1);
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  transition: border-color 0.2s;
+}
+.bimpro-agr-block:hover { border-color: rgba(230,67,23,0.3); }
+.bimpro-agr-block-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.bimpro-agr-block-img {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bimpro-agr-block-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.bimpro-agr-block-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(207,206,206,0.1);
+  color: #cfcece;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(207,206,206,0.2);
+  margin-right: 12px;
+}
+.bimpro-agr-block h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  display: inline;
+}
+.bimpro-agr-block-desc {
+  color: #cfcece;
+  margin: 12px 0 24px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+.bimpro-agr-block-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.bimpro-agr-block-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: rgba(207,206,206,0.8);
+  font-size: 14px;
+}
+.bimpro-agr-block-list li::before {
+  content: '✓';
+  color: #e64317;
+  font-weight: bold;
+}
+.bimpro-agr-block-cim {
+  background: linear-gradient(135deg, #202020, #151515);
+  border: 1px solid rgba(230,67,23,0.4);
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-agr-block-cim::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 256px;
+  height: 256px;
+  background: rgba(230,67,23,0.05);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+.bimpro-agr-cim-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.bimpro-agr-cim-card {
+  background: rgba(27,27,27,0.5);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(230,67,23,0.1);
+}
+.bimpro-agr-cim-card strong { color: #fff; }
+.bimpro-agr-cim-card p { font-size: 12px; color: #cfcece; margin-top: 4px; }
+.bimpro-agr-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px;
+  background: #e64317;
+  border-radius: 12px;
+  margin-top: 32px;
+  text-decoration: none;
+  color: #fff;
+  transition: box-shadow 0.2s;
+}
+.bimpro-agr-cta:hover { box-shadow: 0 0 50px rgba(230,67,23,0.4); }
+.bimpro-agr-cta-left { display: flex; align-items: center; gap: 16px; }
+.bimpro-agr-cta-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.bimpro-agr-cta-icon svg { color: #fff; }
+.bimpro-agr-cta h4 { font-family: 'BebasNeueCustom', sans-serif; font-size: 24px; margin-bottom: 4px; }
+.bimpro-agr-cta p { font-size: 14px; opacity: 0.9; }
+.bimpro-agr-cta-btn {
+  padding: 12px 24px;
+  background: #fff;
+  color: #e64317;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+}
+.bimpro-agr-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+.bimpro-agr-modal-overlay.is-open { display: flex; }
+.bimpro-agr-modal {
+  background: #1a1a1a;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.bimpro-agr-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  background: #202020;
+}
+.bimpro-agr-modal-header h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+  padding-right: 16px;
+}
+.bimpro-agr-modal-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  color: #cfcece;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bimpro-agr-modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.bimpro-agr-modal-body {
+  padding: 32px;
+  max-height: 70vh;
+  overflow-y: auto;
+  font-family: 'OnestCustom', sans-serif;
+  color: #cfcece;
+  line-height: 1.7;
+}
+.bimpro-agr-modal-body ul { list-style: disc; padding-left: 20px; margin: 16px 0; }
+.bimpro-agr-modal-body li { margin-bottom: 8px; }
+.bimpro-agr-modal-footer {
+  padding: 24px 32px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  text-align: right;
+}
+.bimpro-agr-modal-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #e64317;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.bimpro-agr-modal-cta:hover { background: #d13a12; }
+@media (max-width: 768px) {
+  .bimpro-agr-block-grid { grid-template-columns: 1fr; }
+  .bimpro-agr-block-list { grid-template-columns: 1fr; }
+  .bimpro-agr-cim-cards { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<section class="bimpro-agr" id="agr">
+  <div class="bimpro-agr-inner">
+    <div class="bimpro-agr-header">
+      <div class="bimpro-agr-label">3D-моделирование</div>
+      <h2>СОЗДАНИЕ 3D-МОДЕЛЕЙ АГР<br>ПО НОВЫМ ТРЕБОВАНИЯМ</h2>
+    </div>
+
+    <div class="bimpro-agr-block">
+      <div class="bimpro-agr-block-grid">
+        <div class="bimpro-agr-block-img">
+          <img src="https://static.tildacdn.com/tild6232-3337-4461-a338-363864376536/npm_model_nobg.png" alt="НПМ" onerror="this.parentElement.innerHTML='📦'">
+        </div>
+        <div>
+          <div style="margin-bottom:12px;">
+            <span class="bimpro-agr-block-tag">НПМ</span>
+            <h4>Низкополигональная модель</h4>
+          </div>
+          <p class="bimpro-agr-block-desc">Оптимизированная облегченная версия для интеграции в 3D-карту города. Необходима для градостроительного анализа и размещения на цифровом двойнике Москвы.</p>
+          <ul class="bimpro-agr-block-list" style="list-style:none; padding:0; margin:0;">
+            <li>Оптимизация до <strong>150 000 полигонов</strong></li>
+            <li>Запекание текстур в атласы (Diff, Spec, Norm)</li>
+            <li>Формат передачи: FBX, GLB</li>
+            <li>Соответствие требованиям ДГП</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bimpro-agr-block">
+      <div class="bimpro-agr-block-grid">
+        <div class="bimpro-agr-block-img">
+          <img src="https://static.tildacdn.com/tild3061-6266-4365-a561-646564666138/vpm_model_nobg.png" alt="ВПМ" onerror="this.parentElement.innerHTML='📚'">
+        </div>
+        <div>
+          <div style="margin-bottom:12px;">
+            <span class="bimpro-agr-block-tag">ВПМ</span>
+            <h4>Высокополигональная модель</h4>
+          </div>
+          <p class="bimpro-agr-block-desc">Детализированная модель для цифрового двойника города и передачи в Москомархитектуру. Полный пакет данных для получения свидетельства об утверждении АГР.</p>
+          <ul class="bimpro-agr-block-list" style="list-style:none; padding:0; margin:0;">
+            <li>Детализация до <strong>1 млн полигонов</strong></li>
+            <li>Текстурирование UDIM (высокое разрешение)</li>
+            <li>Адаптация под Unreal Engine 5</li>
+            <li>Архитектурная подсветка</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bimpro-agr-block-cim">
+      <div style="position:relative; z-index:1;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+          <div style="padding:8px; background:#e64317; border-radius:8px; color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg></div>
+          <div>
+            <h4 style="font-family:'BebasNeueCustom',sans-serif; font-size:24px; color:#fff;">ЦИМ и Обязательные форматы</h4>
+            <p style="color:#e64317; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin:4px 0 0;">Вступает в силу с 06.04.2026</p>
+          </div>
+        </div>
+        <p style="color:#cfcece; margin-bottom:32px; padding-left:16px; border-left:2px solid rgba(230,67,23,0.3);">
+          Подготовка цифровой информационной модели (ЦИМ) в формате <strong>IFC 4</strong> (Reference View) и формирование обязательной ведомости технико-экономических показателей (ТЭП) в <strong>XML</strong>.
+        </p>
+        <div class="bimpro-agr-cim-cards">
+          <div class="bimpro-agr-cim-card">
+            <strong>Формат IFC 4</strong>
+            <p>Reference View, кодировка IFC SPF. Сохранение структуры данных.</p>
+          </div>
+          <div class="bimpro-agr-cim-card">
+            <strong>Атрибуты RusSet</strong>
+            <p>Наполнение параметрами с префиксами RusSet_ и обязательным RUS_FNO.</p>
+          </div>
+          <div class="bimpro-agr-cim-card">
+            <strong>Ведомость XML</strong>
+            <p>Формирование машиночитаемой ведомости ТЭП для автоматической проверки.</p>
+          </div>
+          <div class="bimpro-agr-cim-card">
+            <strong>Валидация</strong>
+            <p>Проверка на коллизии и соответствие схеме IFC 4.0.2.1 (ГОСТ Р 10.0.02-2019).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" id="bimpro-agr-cta-btn" class="bimpro-agr-cta" style="border:none; cursor:pointer; width:100%; text-align:left;">
+      <div class="bimpro-agr-cta-left">
+        <div class="bimpro-agr-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div>
+          <h4>Нужна помощь с адаптацией?</h4>
+          <p>Мы поможем подготовить проект под новые требования Москомархитектуры.</p>
+        </div>
+      </div>
+      <span class="bimpro-agr-cta-btn">Получить консультацию →</span>
+    </button>
+  </div>
+</section>
+<div id="bimpro-agr-modal" class="bimpro-agr-modal-overlay">
+  <div class="bimpro-agr-modal">
+    <div class="bimpro-agr-modal-header">
+      <h3>Заказать 3D-модель АГР</h3>
+      <button type="button" class="bimpro-agr-modal-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-agr-modal-body">
+      <p>Мы выполним подготовку полного пакета материалов для согласования АГР в Москомархитектуре:</p>
+      <ul>
+        <li>Разработка НПМ и ВПМ моделей</li>
+        <li>Адаптация под Unreal Engine 5</li>
+        <li>Формирование IFC-контейнера с атрибутами</li>
+        <li>Подготовка XML-ведомости ТЭП</li>
+      </ul>
+      <p style="margin-top:16px; font-size:14px; color:rgba(207,206,206,0.8);">Оставьте заявку, и мы свяжемся с Вами в течение рабочего дня.</p>
+    </div>
+    <div class="bimpro-agr-modal-footer">
+      <a href="#contact" class="bimpro-agr-modal-cta">Оставить заявку</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('bimpro-agr-cta-btn');
+  var overlay=document.getElementById('bimpro-agr-modal');
+  if(btn&&overlay){
+    btn.addEventListener('click',function(){overlay.classList.add('is-open');document.body.style.overflow='hidden';});
+    overlay.addEventListener('click',function(e){if(e.target===overlay){overlay.classList.remove('is-open');document.body.style.overflow='';}});
+    overlay.querySelector('.bimpro-agr-modal-close').addEventListener('click',function(){overlay.classList.remove('is-open');document.body.style.overflow='';});
+    overlay.querySelector('.bimpro-agr-modal-cta').addEventListener('click',function(){overlay.classList.remove('is-open');document.body.style.overflow='';});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open')){overlay.classList.remove('is-open');document.body.style.overflow='';}});
+  }
+})();
+</script>

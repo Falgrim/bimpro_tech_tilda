@@ -1,0 +1,91 @@
+<!-- БЛОК 1: Шапка/Меню -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-nav {
+  font-family: 'OnestCustom', sans-serif;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  transition: all 0.3s;
+  background: rgba(27, 27, 27, 0.98);
+  border-bottom: 1px solid rgba(207, 206, 206, 0.1);
+  padding: 16px 0;
+}
+.bimpro-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bimpro-nav-logo { height: 40px; width: auto; }
+.bimpro-nav-links { display: flex; align-items: center; gap: 32px; }
+.bimpro-nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.bimpro-nav-link:hover { color: #e64317 !important; border-color: #e64317; }
+.bimpro-nav-divider { width: 1px; height: 20px; background: rgba(207,206,206,0.2); flex-shrink: 0; }
+.bimpro-nav-bimpro {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e64317 !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.bimpro-nav-bimpro:hover { color: #fff !important; border-color: #e64317; }
+.bimpro-nav-bimpro svg { flex-shrink: 0; }
+.bimpro-nav-phone {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff !important;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.bimpro-nav-phone:hover { color: #d13a12 !important; }
+@media (max-width: 768px) {
+  .bimpro-nav-links { display: none; }
+}
+</style>
+
+<nav class="bimpro-nav">
+  <div class="bimpro-nav-inner">
+    <a href="#">
+      <img src="https://static.tildacdn.com/tild3739-3837-4462-b264-376333613836/header_logo.png" alt="BIMPRO" class="bimpro-nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span style="display:none; align-items:center; gap:8px; font-family:'BebasNeueCustom',sans-serif; font-size:28px; color:#fff;">
+        <span style="width:32px;height:32px;background:#e64317;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;">B</span>
+        BIM<span style="color:#e64317">PRO</span>
+      </span>
+    </a>
+    <div class="bimpro-nav-links">
+      <a href="#services" class="bimpro-nav-link">BIM-услуги</a>
+      <a href="#trust" class="bimpro-nav-link">Награды</a>
+      <a href="#training" class="bimpro-nav-link">Обучение</a>
+      <a href="#benefits" class="bimpro-nav-link">Преимущества</a>
+      <a href="#cases" class="bimpro-nav-link">Кейсы</a>
+      <div class="bimpro-nav-divider"></div>
+      <a href="https://bimpro.ru" target="_blank" rel="noopener noreferrer" class="bimpro-nav-bimpro">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>К BIMPRO</span>
+      </a>
+      <a href="tel:+78122103602" class="bimpro-nav-phone">+7 812 210 36 02</a>
+    </div>
+  </div>
+</nav>

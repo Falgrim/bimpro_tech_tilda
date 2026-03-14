@@ -1,0 +1,348 @@
+<!-- БЛОК 9: Библиотеки: разработка семейств Revit -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-families {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 80px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-families-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-families-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.bimpro-families-label {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  color: #e64317;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.bimpro-families h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  line-height: 1;
+}
+.bimpro-families-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bimpro-families-card {
+  background: #1b1b1b;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.bimpro-families-card:hover { border-color: #e64317; }
+.bimpro-families-card-img {
+  height: 192px;
+  background: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-families-card-img-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.bimpro-families-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1b1b1b;
+  border: 1px solid rgba(207,206,206,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+.bimpro-families-card-body { padding: 24px; }
+.bimpro-families-card-type {
+  font-size: 12px;
+  color: #cfcece;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.bimpro-families-card h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.bimpro-families-card-desc {
+  font-size: 14px;
+  color: #cfcece;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.bimpro-families-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.bimpro-families-tag {
+  font-size: 10px;
+  padding: 4px 8px;
+  background: #252525;
+  color: #cfcece;
+  border-radius: 4px;
+  border: 1px solid rgba(207,206,206,0.2);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.bimpro-families-card-result {
+  padding-top: 16px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  font-size: 14px;
+  color: #cfcece;
+}
+.bimpro-families-card-result strong { color: #fff; }
+.bimpro-families-more {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e64317;
+  text-transform: uppercase;
+  margin-top: 16px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.bimpro-families-card:hover .bimpro-families-more { opacity: 1; }
+.bimpro-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+.bimpro-modal-overlay.is-open { display: flex; }
+.bimpro-modal {
+  background: #1a1a1a;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.bimpro-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  background: #202020;
+}
+.bimpro-modal-header h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+  padding-right: 16px;
+}
+.bimpro-modal-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  color: #cfcece;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.bimpro-modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.bimpro-modal-body {
+  padding: 32px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.bimpro-modal-body ul { list-style: disc; padding-left: 20px; margin: 0; }
+.bimpro-modal-body li { color: #cfcece; font-size: 16px; line-height: 1.7; margin-bottom: 16px; font-family: 'OnestCustom', sans-serif; }
+.bimpro-modal-body li::marker { color: #e64317; }
+.bimpro-modal-footer {
+  padding: 24px 32px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  text-align: right;
+}
+.bimpro-modal-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #e64317;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.bimpro-modal-cta:hover { background: #d13a12; }
+@media (max-width: 768px) {
+  .bimpro-families-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-families">
+  <div class="bimpro-families-inner">
+    <div class="bimpro-families-header">
+      <div>
+        <div class="bimpro-families-label">Библиотеки</div>
+        <h2>Разработка семейств Revit</h2>
+      </div>
+      <button type="button" id="bimpro-families-catalog-btn" style="color:#e64317; font-size:14px; font-weight:600; text-decoration:none; text-transform:uppercase; background:none; border:none; cursor:pointer; font-family:inherit;">Заказать разработку →</button>
+    </div>
+    <div class="bimpro-families-grid" id="bimpro-families-grid">
+      <div class="bimpro-families-card" data-modal-title="Инженерное оборудование" data-modal-details="Создание параметрических семейств с точками подключения (коннекторами) для автоматической трассировки труб и воздуховодов.|Внедрение таблиц выбора для соответствия сортаменту производителя.|Настройка общих параметров для автоматического попадания оборудования в спецификации по ГОСТ.">
+        <div class="bimpro-families-card-img">
+          <img src="https://static.tildacdn.com/tild3539-3536-4265-b038-373639613465/pattern_families.png" alt="" class="bimpro-families-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-families-card-icon">💻</div>
+        </div>
+        <div class="bimpro-families-card-body">
+          <div class="bimpro-families-card-type">Инженерам / Производителям</div>
+          <h4>Инженерное оборудование</h4>
+          <p class="bimpro-families-card-desc">Разработка инженерных семейств (MEP) для сетей ОВ/ВК/ЭОМ. Корректные расчеты, спецификации и полная совместимость с шаблонами ADSK.</p>
+          <div class="bimpro-families-tags">
+            <span class="bimpro-families-tag">Вентиляция</span>
+            <span class="bimpro-families-tag">Трубопроводы</span>
+            <span class="bimpro-families-tag">Электрика</span>
+          </div>
+          <div class="bimpro-families-card-result">Результат: <strong>Соответствие стандарту ADSK</strong></div>
+          <div class="bimpro-families-more">Подробнее →</div>
+        </div>
+      </div>
+      <div class="bimpro-families-card" data-modal-title="Библиотека семейств" data-modal-details="Создание эстетичных и функциональных моделей мебели, окон и дверей, готовых к использованию в дизайн-проектах и рабочей документации.|Настройка уровней детализации для корректного отображения на планах, разрезах и развертках (УГО), а также в 3D-видах.|Оптимизация геометрии для сохранения производительности проекта при высоком качестве визуализации.">
+        <div class="bimpro-families-card-img">
+          <img src="https://static.tildacdn.com/tild3539-3536-4265-b038-373639613465/pattern_families.png" alt="" class="bimpro-families-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-families-card-icon">🪑</div>
+        </div>
+        <div class="bimpro-families-card-body">
+          <div class="bimpro-families-card-type">Архитекторам / Дизайнерам</div>
+          <h4>Библиотека семейств</h4>
+          <p class="bimpro-families-card-desc">Легкие модели для интерьеров и экстерьеров. Эстетичная геометрия для визуализации с минимальной нагрузкой на модель.</p>
+          <div class="bimpro-families-tags">
+            <span class="bimpro-families-tag">Окна/Двери</span>
+            <span class="bimpro-families-tag">Мебель</span>
+            <span class="bimpro-families-tag">Единый стиль</span>
+          </div>
+          <div class="bimpro-families-card-result">Результат: <strong>Минимальный вес файла</strong></div>
+          <div class="bimpro-families-more">Подробнее →</div>
+        </div>
+      </div>
+      <div class="bimpro-families-card" data-modal-title="BIM-мастерская" data-modal-details="Оперативная разработка уникальных семейств под конкретные задачи текущего проекта.|Адаптация разрозненных семейств из разных источников под единый стиль оформления и внутренний стандарт компании.|Создание инструкций и мануалов по использованию сложных семейств для проектировщиков.">
+        <div class="bimpro-families-card-img">
+          <img src="https://static.tildacdn.com/tild3539-3536-4265-b038-373639613465/pattern_families.png" alt="" class="bimpro-families-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-families-card-icon">♾</div>
+        </div>
+        <div class="bimpro-families-card-body">
+          <div class="bimpro-families-card-type">Девелоперам / Бюро</div>
+          <h4>BIM-мастерская</h4>
+          <p class="bimpro-families-card-desc">Ваша внешняя BIM-мастерская. Получайте качественные семейства ежемесячно по фиксированной цене, не нанимая штат специалистов.</p>
+          <div class="bimpro-families-tags">
+            <span class="bimpro-families-tag">Подписка</span>
+            <span class="bimpro-families-tag">Любые разделы</span>
+            <span class="bimpro-families-tag">Инструкция</span>
+          </div>
+          <div class="bimpro-families-card-result">Результат: <strong>Экономия бюджета</strong></div>
+          <div class="bimpro-families-more">Подробнее →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="bimpro-families-modal" class="bimpro-modal-overlay">
+  <div class="bimpro-modal">
+    <div class="bimpro-modal-header">
+      <h3 id="bimpro-families-modal-title"></h3>
+      <button type="button" class="bimpro-modal-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-modal-body">
+      <ul id="bimpro-families-modal-list"></ul>
+    </div>
+    <div class="bimpro-modal-footer">
+      <a href="#contact" class="bimpro-modal-cta">Заказать семейство</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('bimpro-families-modal');
+  var titleEl=document.getElementById('bimpro-families-modal-title');
+  var listEl=document.getElementById('bimpro-families-modal-list');
+  var grid=document.getElementById('bimpro-families-grid');
+  if(!overlay||!titleEl||!listEl||!grid)return;
+  function openModal(title,details){
+    titleEl.textContent=title;
+    listEl.innerHTML='';
+    details.split('|').forEach(function(d){var li=document.createElement('li');li.textContent=d;listEl.appendChild(li);});
+    overlay.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){overlay.classList.remove('is-open');document.body.style.overflow='';}
+  grid.addEventListener('click',function(e){
+    var card=e.target.closest('.bimpro-families-card');
+    if(card&&card.dataset.modalTitle){e.preventDefault();e.stopPropagation();openModal(card.dataset.modalTitle,card.dataset.modalDetails);}
+  });
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  overlay.querySelector('.bimpro-modal-close').addEventListener('click',closeModal);
+  overlay.querySelector('.bimpro-modal-cta').addEventListener('click',closeModal);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeModal();});
+  var catalogBtn=document.getElementById('bimpro-families-catalog-btn');
+  var catalogOverlay=document.getElementById('bimpro-families-catalog-modal');
+  if(catalogBtn&&catalogOverlay){
+    catalogBtn.addEventListener('click',function(){
+      catalogOverlay.classList.add('is-open');
+      document.body.style.overflow='hidden';
+    });
+    catalogOverlay.addEventListener('click',function(e){if(e.target===catalogOverlay){catalogOverlay.classList.remove('is-open');document.body.style.overflow='';}});
+    catalogOverlay.querySelector('.bimpro-modal-close').addEventListener('click',function(){catalogOverlay.classList.remove('is-open');document.body.style.overflow='';});
+    catalogOverlay.querySelector('.bimpro-modal-cta').addEventListener('click',function(){catalogOverlay.classList.remove('is-open');document.body.style.overflow='';});
+    document.addEventListener('keydown',function esc(e){if(e.key==='Escape'&&catalogOverlay.classList.contains('is-open')){catalogOverlay.classList.remove('is-open');document.body.style.overflow='';}});
+  }
+})();
+</script>
+<div id="bimpro-families-catalog-modal" class="bimpro-modal-overlay">
+  <div class="bimpro-modal">
+    <div class="bimpro-modal-header">
+      <h3>Разработка семейств под заказ</h3>
+      <button type="button" class="bimpro-modal-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-modal-body" style="font-family:'OnestCustom',sans-serif;">
+      <p style="color:#cfcece; margin-bottom:16px; line-height:1.7;">Нужна специфическая библиотека? Мы создаем семейства любой сложности: от мебели до сложного технологического оборудования.</p>
+      <p style="color:#cfcece; margin-bottom:16px; line-height:1.7;">Полная параметризация, формулы, вложенные семейства и оптимизация веса для быстрой работы ваших проектов.</p>
+      <p style="color:#fff; font-weight:600; line-height:1.7;">Гарантия прохождения валидации и соответствия BIM-стандартам.</p>
+    </div>
+    <div class="bimpro-modal-footer">
+      <a href="#contact" class="bimpro-modal-cta">Заказать разработку</a>
+    </div>
+  </div>
+</div>

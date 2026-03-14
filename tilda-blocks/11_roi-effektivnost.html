@@ -1,0 +1,229 @@
+<!-- БЛОК 11: ROI и эффективность -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ID для якоря: #benefits -->
+
+<style>
+.bimpro-benefits {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-benefits::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background: rgba(230,67,23,0.05);
+  border-radius: 50%;
+  filter: blur(100px);
+  transform: translate(50%, -50%);
+}
+.bimpro-benefits-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.bimpro-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.bimpro-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(230,67,23,0.3);
+  background: rgba(230,67,23,0.05);
+  color: #e64317;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.bimpro-benefits h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  color: #fff;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+.bimpro-benefits-item {
+  margin-bottom: 32px;
+}
+.bimpro-benefits-item-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.bimpro-benefits-item-icon {
+  width: 40px;
+  height: 40px;
+  background: #252525;
+  border: 1px solid rgba(207,206,206,0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e64317;
+}
+.bimpro-benefits-item-icon svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.bimpro-benefits-item h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+}
+.bimpro-benefits-item p {
+  color: #cfcece;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-left: 56px;
+  border-left: 1px solid rgba(207,206,206,0.1);
+  margin-left: 20px;
+}
+.bimpro-benefits-table {
+  background: #151515;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(207,206,206,0.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+.bimpro-benefits-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.bimpro-benefits-table-header > div {
+  padding: 24px;
+}
+.bimpro-benefits-table-header .left {
+  background: #1a1a1a;
+  color: #cfcece;
+}
+.bimpro-benefits-table-header .right {
+  background: #e64317;
+  color: #fff;
+}
+.bimpro-benefits-table-body { padding: 32px; }
+.bimpro-benefits-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(207,206,206,0.05);
+}
+.bimpro-benefits-table-row:last-child { border-bottom: none; }
+.bimpro-benefits-table-left { text-align: right; }
+.bimpro-benefits-table-right { text-align: left; position: relative; padding-left: 16px; }
+.bimpro-benefits-table-right::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(207,206,206,0.1);
+}
+.bimpro-benefits-table-num {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 32px;
+}
+.bimpro-benefits-table-num.grey { color: rgba(207,206,206,0.4); }
+.bimpro-benefits-table-num.primary { color: #e64317; }
+.bimpro-benefits-table-num.white { color: #fff; }
+.bimpro-benefits-table-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.bimpro-benefits-table-label.grey { color: rgba(207,206,206,0.4); }
+.bimpro-benefits-table-label.white { color: #fff; }
+@media (max-width: 768px) {
+  .bimpro-benefits-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-benefits" id="benefits">
+  <div class="bimpro-benefits-inner">
+    <div class="bimpro-benefits-grid">
+      <div>
+        <div class="bimpro-benefits-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>ROI & Эффективность</div>
+        <h2>Математическая точность<br>в каждом узле</h2>
+        <div class="bimpro-benefits-item">
+          <div class="bimpro-benefits-item-header">
+            <div class="bimpro-benefits-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4"/><path d="M6 12H2"/><path d="M12 6V2"/><path d="M12 22v-4"/></svg></div>
+            <h4>Сметы с точностью до 99%</h4>
+          </div>
+          <p>Автоматическая выгрузка ведомостей (ВОР) напрямую из модели. Исключаем "человеческий фактор" и перезаклад материалов подрядчиками.</p>
+        </div>
+        <div class="bimpro-benefits-item">
+          <div class="bimpro-benefits-item-header">
+            <div class="bimpro-benefits-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h4>Контроль стройки 24/7</h4>
+          </div>
+          <p>Заказчик видит реальный прогресс строительства. План-фактный анализ на основе 4D-модели (деньги + время).</p>
+        </div>
+        <div class="bimpro-benefits-item">
+          <div class="bimpro-benefits-item-header">
+            <div class="bimpro-benefits-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+            <h4>Лазерная точность измерений</h4>
+          </div>
+          <p>Создаем цифровые двойники зданий с погрешностью до 5 мм. Гарантия полного соответствия модели фактическому положению конструкций.</p>
+        </div>
+      </div>
+      <div class="bimpro-benefits-table">
+        <div class="bimpro-benefits-table-header">
+          <div class="left">Традиционный метод</div>
+          <div class="right">BIM-технологии</div>
+        </div>
+        <div class="bimpro-benefits-table-body">
+          <div class="bimpro-benefits-table-row">
+            <div class="bimpro-benefits-table-left">
+              <div class="bimpro-benefits-table-num grey">15%</div>
+              <div class="bimpro-benefits-table-label grey">Погрешность сметы</div>
+            </div>
+            <div class="bimpro-benefits-table-right">
+              <div class="bimpro-benefits-table-num primary">до 99% ✓</div>
+              <div class="bimpro-benefits-table-label white">Точность расчетов</div>
+            </div>
+          </div>
+          <div class="bimpro-benefits-table-row">
+            <div class="bimpro-benefits-table-left">
+              <div class="bimpro-benefits-table-num grey">Плоские чертежи</div>
+              <div class="bimpro-benefits-table-label grey">Формат выдачи</div>
+            </div>
+            <div class="bimpro-benefits-table-right">
+              <div class="bimpro-benefits-table-num white">Цифровой двойник</div>
+              <div class="bimpro-benefits-table-label white">Информационная модель</div>
+            </div>
+          </div>
+          <div class="bimpro-benefits-table-row">
+            <div class="bimpro-benefits-table-left">
+              <div class="bimpro-benefits-table-num grey">По факту</div>
+              <div class="bimpro-benefits-table-label grey">Поиск ошибок</div>
+            </div>
+            <div class="bimpro-benefits-table-right">
+              <div class="bimpro-benefits-table-num primary">0 коллизий</div>
+              <div class="bimpro-benefits-table-label white">На стройплощадке</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

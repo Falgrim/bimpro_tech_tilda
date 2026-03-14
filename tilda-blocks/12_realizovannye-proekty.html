@@ -1,0 +1,151 @@
+<!-- БЛОК 12: Реализованные проекты -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ID для якоря: #cases -->
+
+<style>
+.bimpro-cases {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #1b1b1b;
+}
+.bimpro-cases-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-cases h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.bimpro-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.bimpro-cases-card {
+  background: #1b1b1b;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(207,206,206,0.2);
+  transition: border-color 0.2s;
+}
+.bimpro-cases-card:hover { border-color: #e64317; }
+.bimpro-cases-card-img {
+  height: 192px;
+  background: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.bimpro-cases-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.bimpro-cases-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 12px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  color: #fff;
+  border: 1px solid rgba(230,67,23,0.3);
+}
+.bimpro-cases-card-body { padding: 24px; }
+.bimpro-cases-card-type {
+  font-size: 12px;
+  color: #cfcece;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.bimpro-cases-card h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.bimpro-cases-card-result {
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(230,67,23,0.2);
+  border-radius: 4px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #e64317;
+  font-weight: 600;
+}
+.bimpro-cases-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.bimpro-cases-tag {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: #252525;
+  color: #cfcece;
+  border-radius: 4px;
+  border: 1px solid rgba(207,206,206,0.2);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .bimpro-cases-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-cases" id="cases">
+  <div class="bimpro-cases-inner">
+    <h2>Реализованные проекты</h2>
+    <div class="bimpro-cases-grid">
+      <div class="bimpro-cases-card">
+        <div class="bimpro-cases-card-img">
+          <img src="https://static.tildacdn.com/tild6466-6630-4430-b537-353436636438/project_1.png" alt="ЖК Ботаника Парк" onerror="this.style.display='none'; this.parentElement.style.background='#252525'; this.parentElement.innerHTML='<span style=font-size:48px>🏢</span>';">
+          <span class="bimpro-cases-card-badge">26 000 м²</span>
+        </div>
+        <div class="bimpro-cases-card-body">
+          <div class="bimpro-cases-card-type">Жилая недвижимость</div>
+          <h3>ЖК «Ботаника Парк»</h3>
+          <div class="bimpro-cases-card-result">Результат: Устранено 1500+ коллизий 2D-чертежей</div>
+          <div class="bimpro-cases-tags">
+            <span class="bimpro-cases-tag">Разработка BIM по 2D</span>
+            <span class="bimpro-cases-tag">Аудит проекта</span>
+          </div>
+        </div>
+      </div>
+      <div class="bimpro-cases-card">
+        <div class="bimpro-cases-card-img">
+          <img src="https://static.tildacdn.com/tild3132-6539-4164-b562-663532666566/project_2.png" alt="Детский сад" onerror="this.style.display='none'; this.parentElement.style.background='#252525'; this.parentElement.innerHTML='<span style=font-size:48px>🏫</span>';">
+          <span class="bimpro-cases-card-badge">4 400 м²</span>
+        </div>
+        <div class="bimpro-cases-card-body">
+          <div class="bimpro-cases-card-type">Социальный объект</div>
+          <h3>Детский сад на 220 мест</h3>
+          <div class="bimpro-cases-card-result">Результат: Цифровой двойник с точностью 5 мм</div>
+          <div class="bimpro-cases-tags">
+            <span class="bimpro-cases-tag">Лазерное сканирование</span>
+            <span class="bimpro-cases-tag">LOD 400</span>
+          </div>
+        </div>
+      </div>
+      <div class="bimpro-cases-card">
+        <div class="bimpro-cases-card-img">
+          <img src="https://static.tildacdn.com/tild6161-3435-4762-b339-353034656636/Screenshot_18.jpg" alt="Ремонтно-эксплуатационный блок" onerror="this.style.display='none'; this.parentElement.style.background='#252525'; this.parentElement.innerHTML='<span style=font-size:48px>🏭</span>';">
+          <span class="bimpro-cases-card-badge">100+ семейств</span>
+        </div>
+        <div class="bimpro-cases-card-body">
+          <div class="bimpro-cases-card-type">Производственный объект</div>
+          <h3>Ремонтно-эксплуатационный блок</h3>
+          <div class="bimpro-cases-card-result">Результат: Единый стандарт оборудования холдинга</div>
+          <div class="bimpro-cases-tags">
+            <span class="bimpro-cases-tag">Библиотека семейств</span>
+            <span class="bimpro-cases-tag">BIM-стандарт</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

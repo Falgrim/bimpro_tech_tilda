@@ -1,0 +1,128 @@
+<!-- БЛОК 14: ООО «БИМПРО» — проектная компания полного цикла в BIM -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-about {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-about-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.bimpro-about h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #fff;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+.bimpro-about-text {
+  color: #cfcece;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.bimpro-about-text p { margin-bottom: 24px; }
+.bimpro-about-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+.bimpro-about-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #cfcece;
+}
+.bimpro-about-list li::before {
+  content: '✓';
+  color: #e64317;
+  font-weight: bold;
+}
+.bimpro-about-img {
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(207,206,206,0.2);
+}
+.bimpro-about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bimpro-about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-about-stat {
+  text-align: center;
+}
+.bimpro-about-stat-num {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 72px;
+  color: #e64317;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.bimpro-about-stat-label {
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+.bimpro-about-stat.mid {
+  border-left: 1px solid rgba(207,206,206,0.1);
+  border-right: 1px solid rgba(207,206,206,0.1);
+}
+@media (max-width: 768px) {
+  .bimpro-about-grid { grid-template-columns: 1fr; }
+  .bimpro-about-stats { grid-template-columns: 1fr; }
+  .bimpro-about-stat.mid { border: none; }
+}
+</style>
+
+<section class="bimpro-about">
+  <div class="bimpro-about-inner">
+    <div class="bimpro-about-grid">
+      <div>
+        <h2>ООО «БИМПРО» — проектная компания полного цикла в BIM</h2>
+        <div class="bimpro-about-text">
+          <p>Глубоко владея BIM-технологиями и являясь профильными проектировщиками с огромным опытом - сокращаем сроки строительства, экономим десятки процентов бюджета за счет аудита ПД и контроля расходов на стройке через построение BIM-модели ОКС.</p>
+          <ul class="bimpro-about-list">
+            <li>Типовое проектирование ЖК от 50 тыс. м2</li>
+            <li>Построение сложных BIM-моделей по плоской документации</li>
+            <li>Аудит ПД, строительства, сметы, включая ВОР и ВОМ с точностью 98%</li>
+            <li>Дизайн и VR-визуализация МОП и благоустройства</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bimpro-about-img">
+        <img src="https://static.tildacdn.com/tild3866-6134-4331-b137-643732343238/about_image.png" alt="BIMPRO" onerror="this.parentElement.style.background='#202020'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=font-size:64px>🏢</span>';">
+      </div>
+    </div>
+    <div class="bimpro-about-stats">
+      <div class="bimpro-about-stat">
+        <div class="bimpro-about-stat-num">50+</div>
+        <div class="bimpro-about-stat-label">инженеров в команде</div>
+      </div>
+      <div class="bimpro-about-stat mid">
+        <div class="bimpro-about-stat-num">100+</div>
+        <div class="bimpro-about-stat-label">проектов выполнено</div>
+      </div>
+      <div class="bimpro-about-stat">
+        <div class="bimpro-about-stat-num">10</div>
+        <div class="bimpro-about-stat-label">лет работаем на рынке</div>
+      </div>
+    </div>
+  </div>
+</section>

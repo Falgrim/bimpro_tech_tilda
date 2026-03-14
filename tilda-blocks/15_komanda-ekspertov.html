@@ -1,0 +1,123 @@
+<!-- БЛОК 15: Лидеры направления -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-team {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 96px 0;
+  background: #151515;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-team-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-team-header { text-align: center; margin-bottom: 64px; }
+.bimpro-team h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.bimpro-team-sub {
+  color: #cfcece;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.bimpro-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.bimpro-team-card { text-align: center; }
+.bimpro-team-card-img {
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(207,206,206,0.1);
+  margin-bottom: 24px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.bimpro-team-card:hover .bimpro-team-card-img { border-color: rgba(230,67,23,0.5); }
+.bimpro-team-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bimpro-team-card h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.bimpro-team-card-role {
+  font-size: 12px;
+  color: #e64317;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  min-height: 40px;
+}
+.bimpro-team-card-desc {
+  font-size: 12px;
+  color: rgba(207,206,206,0.6);
+  padding-top: 16px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: left;
+}
+.bimpro-team-card-desc svg { flex-shrink: 0; width: 14px; height: 14px; margin-top: 2px; color: rgba(207,206,206,0.6); }
+@media (max-width: 1024px) {
+  .bimpro-team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .bimpro-team-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-team">
+  <div class="bimpro-team-inner">
+    <div class="bimpro-team-header">
+      <h2>Лидеры направления</h2>
+      <p class="bimpro-team-sub">Ключевые специалисты с опытом реализации крупнейших инфраструктурных объектов страны. Представляем лидеров направления — это лишь ключевые лица нашего широкого штата профильных инженеров.</p>
+    </div>
+    <div class="bimpro-team-grid">
+      <div class="bimpro-team-card">
+        <div class="bimpro-team-card-img">
+          <img src="https://static.tildacdn.com/tild3661-3636-4638-b434-306439313164/----_500500.jpg" alt="Анна Николаева" onerror="this.parentElement.style.background='#202020'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=font-size:64px>👤</span>';">
+        </div>
+        <h4>Анна Николаева</h4>
+        <div class="bimpro-team-card-role">Генеральный директор</div>
+        <div class="bimpro-team-card-desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21 V 5 a 2 2 0 0 0 -2 -2 H 10 a 2 2 0 0 0 -2 2 v 16"/></svg><span>CEO, стратегия и исследования</span></div>
+      </div>
+      <div class="bimpro-team-card">
+        <div class="bimpro-team-card-img">
+          <img src="https://static.tildacdn.com/tild3665-3737-4766-b732-333362326136/team_2.png" alt="Дмитрий Смородин" onerror="this.parentElement.style.background='#202020'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=font-size:64px>👤</span>';">
+        </div>
+        <h4>Дмитрий Смородин</h4>
+        <div class="bimpro-team-card-role">Исполнительный директор</div>
+        <div class="bimpro-team-card-desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21 V 5 a 2 2 0 0 0 -2 -2 H 10 a 2 2 0 0 0 -2 2 v 16"/></svg><span>Управление организацией, стратегия развития</span></div>
+      </div>
+      <div class="bimpro-team-card">
+        <div class="bimpro-team-card-img">
+          <img src="https://static.tildacdn.com/tild6639-3863-4131-b039-323263623730/team_3.png" alt="Андрей Кудрин" onerror="this.parentElement.style.background='#202020'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=font-size:64px>👤</span>';">
+        </div>
+        <h4>Андрей Кудрин</h4>
+        <div class="bimpro-team-card-role">Руководитель отдела разработки и внедрения ТИМ</div>
+        <div class="bimpro-team-card-desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21 V 5 a 2 2 0 0 0 -2 -2 H 10 a 2 2 0 0 0 -2 2 v 16"/></svg><span>BIM-технологии, оптимизация и аудит</span></div>
+      </div>
+      <div class="bimpro-team-card">
+        <div class="bimpro-team-card-img">
+          <img src="https://static.tildacdn.com/tild3663-6532-4335-a135-333463643339/team_4.png" alt="Александр Иляхин" onerror="this.parentElement.style.background='#202020'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=font-size:64px>👤</span>';">
+        </div>
+        <h4>Александр Иляхин</h4>
+        <div class="bimpro-team-card-role">Ведущий инженер-разработчик ТИМ-решений</div>
+        <div class="bimpro-team-card-desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21 V 5 a 2 2 0 0 0 -2 -2 H 10 a 2 2 0 0 0 -2 2 v 16"/></svg><span>BIM-технологии, автоматизация, моделирование</span></div>
+      </div>
+    </div>
+  </div>
+</section>

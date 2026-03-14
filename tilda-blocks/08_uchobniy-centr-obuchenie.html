@@ -1,0 +1,332 @@
+<!-- БЛОК 8: Учебный центр: корпоративное обучение -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ID для якоря: #training -->
+
+<style>
+.bimpro-training {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 80px 0;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-training-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-training-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.bimpro-training-label {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  color: #e64317;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.bimpro-training h2 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  line-height: 1;
+}
+.bimpro-training-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e64317;
+  padding: 4px 12px;
+  background: rgba(230,67,23,0.1);
+  border-radius: 9999px;
+  border: 1px solid rgba(230,67,23,0.2);
+  text-transform: uppercase;
+}
+.bimpro-training-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bimpro-training-card {
+  background: #1b1b1b;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.bimpro-training-card:hover { border-color: #e64317; }
+.bimpro-training-card-img {
+  height: 160px;
+  background: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-training-card-img-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.bimpro-training-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1b1b1b;
+  border: 1px solid rgba(207,206,206,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+.bimpro-training-card-body { padding: 24px; }
+.bimpro-training-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.bimpro-training-card-duration {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e64317;
+  padding: 2px 8px;
+  background: rgba(230,67,23,0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(230,67,23,0.2);
+}
+.bimpro-training-card-role {
+  font-size: 12px;
+  color: #cfcece;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.bimpro-training-card h4 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.bimpro-training-card-result {
+  padding-top: 16px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  font-size: 14px;
+  color: #cfcece;
+}
+.bimpro-training-card-result strong { color: #fff; }
+.bimpro-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+.bimpro-modal-overlay.is-open { display: flex; }
+.bimpro-modal {
+  background: #1a1a1a;
+  border: 1px solid rgba(207,206,206,0.2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.bimpro-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(207,206,206,0.1);
+  background: #202020;
+}
+.bimpro-modal-header h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+  padding-right: 16px;
+}
+.bimpro-modal-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  color: #cfcece;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.bimpro-modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.bimpro-modal-body {
+  padding: 32px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.bimpro-modal-body ul { list-style: disc; padding-left: 20px; margin: 0; }
+.bimpro-modal-body li { color: #cfcece; font-size: 16px; line-height: 1.7; margin-bottom: 16px; font-family: 'OnestCustom', sans-serif; }
+.bimpro-modal-body li::marker { color: #e64317; }
+.bimpro-modal-footer {
+  padding: 24px 32px;
+  border-top: 1px solid rgba(207,206,206,0.1);
+  text-align: right;
+}
+.bimpro-modal-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #e64317;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.bimpro-modal-cta:hover { background: #d13a12; }
+@media (max-width: 768px) {
+  .bimpro-training-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="bimpro-training" id="training">
+  <div class="bimpro-training-inner">
+    <div class="bimpro-training-header">
+      <div>
+        <div class="bimpro-training-label">Учебный центр</div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px;">
+          <h2>Корпоративное обучение</h2>
+          <span class="bimpro-training-badge">Онлайн / Оффлайн</span>
+        </div>
+      </div>
+      <button type="button" id="bimpro-training-program-btn" style="color:#e64317; font-size:14px; font-weight:600; text-decoration:none; text-transform:uppercase; background:none; border:none; cursor:pointer; font-family:inherit;">Подобрать программу →</button>
+    </div>
+    <div class="bimpro-training-grid" id="bimpro-training-grid">
+      <div class="bimpro-training-card" data-modal-title="Базовый курс Revit" data-modal-details="Полное погружение в интерфейс и логику программы: от создания осей до выпуска чертежей.|Изучение инструментов моделирования для АР, КР и ИОС на примере реального здания.|Основы работы с семействами, спецификациями и оформлением рабочей документации по ГОСТ.">
+        <div class="bimpro-training-card-img">
+          <img src="https://static.tildacdn.com/tild6664-6338-4262-b732-383839663031/pattern_training.png" alt="" class="bimpro-training-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-training-card-icon">📚</div>
+        </div>
+        <div class="bimpro-training-card-body">
+          <div class="bimpro-training-card-meta">
+            <span class="bimpro-training-card-duration">40 часов</span>
+            <span class="bimpro-training-card-role">Проектировщикам</span>
+          </div>
+          <h4>Базовый курс Revit</h4>
+          <div class="bimpro-training-card-result">Результат: <strong>Навыки работы с ПО</strong></div>
+        </div>
+      </div>
+      <div class="bimpro-training-card" data-modal-title="BIM-менеджмент: основы" data-modal-details="Изучение основных терминов и понятий, знакомство с ключевой документацией (EIR/BEP) и средой общих данных (CDE).|Управление BIM-отделом: распределение ролей, контроль качества моделей и сроков.|Стратегия внедрения BIM: от пилотного проекта до масштабирования на всю компанию.">
+        <div class="bimpro-training-card-img">
+          <img src="https://static.tildacdn.com/tild6664-6338-4262-b732-383839663031/pattern_training.png" alt="" class="bimpro-training-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-training-card-icon">📊</div>
+        </div>
+        <div class="bimpro-training-card-body">
+          <div class="bimpro-training-card-meta">
+            <span class="bimpro-training-card-duration">24 часа</span>
+            <span class="bimpro-training-card-role">ГИПам / Руководителям</span>
+          </div>
+          <h4>BIM-менеджмент: основы</h4>
+          <div class="bimpro-training-card-result">Результат: <strong>Ваш первый проект в BIM</strong></div>
+        </div>
+      </div>
+      <div class="bimpro-training-card" data-modal-title="Navisworks: координация" data-modal-details="Изучение интерфейса программы и принципов сборки единой сводной модели из различных разделов проекта.|Настройка автоматических проверок на коллизии (Clash Detection) и управление отчетами.|Использование инструментов 4D-моделирования (TimeLiner) и выгрузка объемов работ.">
+        <div class="bimpro-training-card-img">
+          <img src="https://static.tildacdn.com/tild6664-6338-4262-b732-383839663031/pattern_training.png" alt="" class="bimpro-training-card-img-pattern" onerror="this.style.display='none'">
+          <div class="bimpro-training-card-icon">🔍</div>
+        </div>
+        <div class="bimpro-training-card-body">
+          <div class="bimpro-training-card-meta">
+            <span class="bimpro-training-card-duration">16 часов</span>
+            <span class="bimpro-training-card-role">BIM-координаторам</span>
+          </div>
+          <h4>Navisworks: координация</h4>
+          <div class="bimpro-training-card-result">Результат: <strong>Поиск коллизий в модели</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="bimpro-training-modal" class="bimpro-modal-overlay">
+  <div class="bimpro-modal">
+    <div class="bimpro-modal-header">
+      <h3 id="bimpro-training-modal-title"></h3>
+      <button type="button" class="bimpro-modal-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-modal-body">
+      <ul id="bimpro-training-modal-list"></ul>
+    </div>
+    <div class="bimpro-modal-footer">
+      <a href="#contact" class="bimpro-modal-cta">Записаться на курс</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('bimpro-training-modal');
+  var titleEl=document.getElementById('bimpro-training-modal-title');
+  var listEl=document.getElementById('bimpro-training-modal-list');
+  var grid=document.getElementById('bimpro-training-grid');
+  if(!overlay||!titleEl||!listEl||!grid)return;
+  function openModal(title,details){
+    titleEl.textContent=title;
+    listEl.innerHTML='';
+    details.split('|').forEach(function(d){var li=document.createElement('li');li.textContent=d;listEl.appendChild(li);});
+    overlay.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){overlay.classList.remove('is-open');document.body.style.overflow='';}
+  grid.addEventListener('click',function(e){
+    var card=e.target.closest('.bimpro-training-card');
+    if(card&&card.dataset.modalTitle){e.preventDefault();e.stopPropagation();openModal(card.dataset.modalTitle,card.dataset.modalDetails);}
+  });
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  overlay.querySelector('.bimpro-modal-close').addEventListener('click',closeModal);
+  overlay.querySelector('.bimpro-modal-cta').addEventListener('click',closeModal);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeModal();});
+  var programBtn=document.getElementById('bimpro-training-program-btn');
+  var programOverlay=document.getElementById('bimpro-training-program-modal');
+  if(programBtn&&programOverlay){
+    programBtn.addEventListener('click',function(){
+      programOverlay.classList.add('is-open');
+      document.body.style.overflow='hidden';
+    });
+    programOverlay.addEventListener('click',function(e){if(e.target===programOverlay){programOverlay.classList.remove('is-open');document.body.style.overflow='';}});
+    programOverlay.querySelector('.bimpro-modal-close').addEventListener('click',function(){programOverlay.classList.remove('is-open');document.body.style.overflow='';});
+    programOverlay.querySelector('.bimpro-modal-cta').addEventListener('click',function(){programOverlay.classList.remove('is-open');document.body.style.overflow='';});
+    document.addEventListener('keydown',function esc(e){if(e.key==='Escape'&&programOverlay.classList.contains('is-open')){programOverlay.classList.remove('is-open');document.body.style.overflow='';}});
+  }
+})();
+</script>
+<div id="bimpro-training-program-modal" class="bimpro-modal-overlay">
+  <div class="bimpro-modal">
+    <div class="bimpro-modal-header">
+      <h3>Индивидуальные программы обучения</h3>
+      <button type="button" class="bimpro-modal-close" aria-label="Закрыть">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="bimpro-modal-body" style="font-family:'OnestCustom',sans-serif;">
+      <p style="color:#cfcece; margin-bottom:16px; line-height:1.7;">Типовые курсы не работают? Мы разработаем программу обучения специально под стандарты вашей компании и текущие проекты.</p>
+      <p style="color:#cfcece; margin-bottom:16px; line-height:1.7;">Обучаем на ваших моделях, разбираем ваши ошибки и помогаем внедрить полученные знания в реальную работу.</p>
+      <p style="color:#fff; font-weight:600; line-height:1.7;">Форматы: вебинары, очные интенсивы, онлайн и оффлайн</p>
+    </div>
+    <div class="bimpro-modal-footer">
+      <a href="#contact" class="bimpro-modal-cta">Подобрать программу</a>
+    </div>
+  </div>
+</div>

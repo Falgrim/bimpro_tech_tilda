@@ -1,0 +1,110 @@
+<!-- БЛОК 18: Наши клиенты -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- Для бесконечной прокрутки логотипов добавьте анимацию в настройках страницы -->
+
+<style>
+.bimpro-clients {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 80px 0;
+  background: #1b1b1b;
+}
+.bimpro-clients-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-clients h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.bimpro-clients-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-clients-wrapper::before,
+.bimpro-clients-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+}
+.bimpro-clients-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #1b1b1b, transparent);
+}
+.bimpro-clients-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #1b1b1b, transparent);
+}
+.bimpro-clients-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: bimpro-marquee 40s linear infinite;
+}
+.bimpro-clients-track:hover {
+  animation-play-state: paused;
+}
+.bimpro-clients-item {
+  width: 200px;
+  height: 120px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #202020;
+  border: 1px solid rgba(207,206,206,0.1);
+  border-radius: 12px;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+.bimpro-clients-item:hover {
+  border-color: rgba(230,67,23,0.5);
+  opacity: 1;
+}
+.bimpro-clients-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.7;
+}
+.bimpro-clients-item:hover img { opacity: 1; }
+@keyframes bimpro-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+<section class="bimpro-clients">
+  <div class="bimpro-clients-inner">
+    <h3>Наши клиенты</h3>
+    <div class="bimpro-clients-wrapper">
+      <div class="bimpro-clients-track">
+        <!-- Дублируем блок для бесшовной анимации -->
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3161-6436-4439-a330-613537666530/client_1.png" alt="Клиент 1" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3335-3563-4561-a130-323165643736/client_2.png" alt="Клиент 2" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3364-3237-4337-a535-633031386435/client_3.png" alt="Клиент 3" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild6439-3965-4130-b334-363564613534/client_4.png" alt="Клиент 4" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild6136-3530-4231-b334-376138313661/client_5.png" alt="Клиент 5" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3731-6339-4534-b966-386137626465/client_6.png" alt="Клиент 6" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3138-3332-4631-a337-633462613761/client_7.png" alt="Клиент 7" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3962-3934-4164-b139-353539323532/client_8.png" alt="Клиент 8" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3236-3836-4430-b133-376431613166/client_9.png" alt="Клиент 9" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3939-6330-4637-b336-313138633035/client_10.png" alt="Клиент 10" onerror="this.parentElement.innerHTML='📋'"></div>
+        <!-- повтор для бесшовного цикла -->
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3161-6436-4439-a330-613537666530/client_1.png" alt="Клиент 1" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3335-3563-4561-a130-323165643736/client_2.png" alt="Клиент 2" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3364-3237-4337-a535-633031386435/client_3.png" alt="Клиент 3" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild6439-3965-4130-b334-363564613534/client_4.png" alt="Клиент 4" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild6136-3530-4231-b334-376138313661/client_5.png" alt="Клиент 5" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3731-6339-4534-b966-386137626465/client_6.png" alt="Клиент 6" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3138-3332-4631-a337-633462613761/client_7.png" alt="Клиент 7" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3962-3934-4164-b139-353539323532/client_8.png" alt="Клиент 8" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3236-3836-4430-b133-376431613166/client_9.png" alt="Клиент 9" onerror="this.parentElement.innerHTML='📋'"></div>
+        <div class="bimpro-clients-item"><img src="https://static.tildacdn.com/tild3939-6330-4637-b336-313138633035/client_10.png" alt="Клиент 10" onerror="this.parentElement.innerHTML='📋'"></div>
+      </div>
+    </div>
+  </div>
+</section>
