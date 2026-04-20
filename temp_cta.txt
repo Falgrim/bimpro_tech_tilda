@@ -1,0 +1,324 @@
+<!-- БЛОК 2: Заголовок "Высокие технологии проектирования" + анимация -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-hero {
+  font-family: 'OnestCustom', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 0 48px;
+  background: #1b1b1b;
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(207,206,206,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(207,206,206,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.bimpro-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #1b1b1b, transparent);
+  pointer-events: none;
+}
+.bimpro-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.bimpro-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+.bimpro-hero h1 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.9;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+.bimpro-hero h1 span { color: #e64317; }
+.bimpro-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(230,67,23,0.5);
+  background: rgba(230,67,23,0.1);
+  color: #e64317;
+  font-size: 12px;
+  font-family: 'BebasNeueCustom', sans-serif;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.bimpro-hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #e64317;
+  border-radius: 50%;
+}
+.bimpro-hero-desc {
+  color: #cfcece;
+  font-size: 18px;
+  max-width: 500px;
+  margin-bottom: 32px;
+  padding-left: 24px;
+  border-left: 2px solid rgba(230,67,23,0.5);
+}
+.bimpro-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+.bimpro-hero-btn-primary {
+  display: inline-block;
+  padding: 16px 32px;
+  background: #e64317;
+  color: #fff !important;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(230,67,23,0.3);
+  transition: background 0.2s;
+}
+.bimpro-hero-btn-primary:hover { background: #d13a12; }
+.bimpro-hero-btn-primary:active { background: #b83210; transform: scale(0.98); }
+.bimpro-hero-btn-primary:link,
+.bimpro-hero-btn-primary:visited { color: #fff !important; }
+.bimpro-hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border: 1px solid #cfcece;
+  color: #fff !important;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.bimpro-hero-btn-secondary:hover { border-color: #e64317; color: #e64317 !important; }
+.bimpro-hero-btn-secondary:hover .bimpro-hero-btn-arrow { transform: translateX(4px); }
+.bimpro-hero-btn-secondary:active { transform: scale(0.98); }
+.bimpro-hero-btn-secondary:link,
+.bimpro-hero-btn-secondary:visited { color: #fff !important; }
+.bimpro-hero-btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.bimpro-hero-visual {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bimpro-hero-card3d {
+  width: 320px;
+  height: 384px;
+  border: 2px solid rgba(230,67,23,0.2);
+  border-radius: 8px;
+  background: #1b1b1b;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  position: relative;
+  transform: perspective(800px) rotateY(-8deg) rotateX(5deg);
+  overflow: visible;
+}
+.bimpro-hero-card3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(230,67,23,0.05), transparent);
+}
+.bimpro-hero-card3d-line { position: absolute; background: rgba(230,67,23,0.2); }
+.bimpro-hero-card3d-line.h { height: 1px; width: 100%; left: 0; }
+.bimpro-hero-card3d-line.h1 { top: 40px; }
+.bimpro-hero-card3d-line.h2 { top: 80px; }
+.bimpro-hero-card3d-line.h3 { top: 160px; }
+.bimpro-hero-card3d-line.v { width: 1px; height: 100%; top: 0; }
+.bimpro-hero-card3d-line.v1 { left: 40px; }
+.bimpro-hero-card3d-line.v2 { right: 40px; left: auto; }
+.bimpro-hero-tag {
+  position: absolute;
+  background: #1b1b1b;
+  border: 1px solid rgba(207,206,206,0.3);
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.bimpro-hero-tag1 {
+  right: 8px;
+  top: 70px;
+  animation: bimpro-float-tag1 22s ease-in-out infinite;
+}
+.bimpro-hero-tag2 {
+  left: 8px;
+  bottom: 70px;
+  border-color: rgba(230,67,23,0.5);
+  box-shadow: 0 0 15px rgba(230,67,23,0.1);
+  animation: bimpro-float-tag2 26s ease-in-out infinite 2s;
+}
+@keyframes bimpro-float-tag1 {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(15px, -22px); }
+  40% { transform: translate(-10px, 6px); }
+  60% { transform: translate(20px, 14px); }
+  80% { transform: translate(-5px, -16px); }
+}
+@keyframes bimpro-float-tag2 {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-18px, 14px); }
+  40% { transform: translate(12px, -18px); }
+  60% { transform: translate(-14px, -10px); }
+  80% { transform: translate(16px, 8px); }
+}
+.bimpro-hero-tag-dot {
+  width: 8px;
+  height: 8px;
+  background: #e64317;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.bimpro-hero-tag-title {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.bimpro-hero-tag2 .bimpro-hero-tag-title { color: #e64317; }
+.bimpro-hero-tag-bar {
+  height: 4px;
+  width: 96px;
+  background: rgba(207,206,206,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bimpro-hero-tag-bar-fill {
+  height: 100%;
+  width: 66%;
+  background: #e64317;
+}
+.bimpro-hero-tag-mono {
+  font-size: 12px;
+  color: #cfcece;
+  font-family: monospace;
+}
+.bimpro-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 40px;
+  border-top: 1px solid rgba(207,206,206,0.2);
+}
+.bimpro-hero-stat {
+  text-align: center;
+}
+.bimpro-hero-stat-num {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  line-height: 1;
+}
+.bimpro-hero-stat-label {
+  font-size: 12px;
+  color: #cfcece;
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  .bimpro-hero-stat { text-align: left; }
+  .bimpro-hero-stat:nth-child(1) { padding-right: 24px; border-right: 1px solid #e64317; }
+  .bimpro-hero-stat:nth-child(2) { padding: 0 24px; border-right: 1px solid #e64317; }
+  .bimpro-hero-stat:nth-child(3) { padding: 0 24px; border-right: 1px solid #e64317; }
+  .bimpro-hero-stat:nth-child(4) { padding-left: 24px; }
+}
+@media (max-width: 1024px) {
+  .bimpro-hero-grid { grid-template-columns: 1fr; }
+  .bimpro-hero-visual { height: 300px; order: -1; }
+  .bimpro-hero-tag1 { right: 10px; }
+  .bimpro-hero-tag2 { left: 10px; }
+}
+@media (max-width: 768px) {
+  .bimpro-hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .bimpro-hero-stat:nth-child(1), .bimpro-hero-stat:nth-child(2), .bimpro-hero-stat:nth-child(3) { border-right: none; padding: 0; }
+  .bimpro-hero-stat:nth-child(odd) { border-right: 1px solid #e64317; padding-right: 12px; }
+}
+</style>
+
+<section class="bimpro-hero">
+  <div class="bimpro-hero-inner">
+    <div class="bimpro-hero-grid">
+      <div>
+        <div class="bimpro-hero-badge">
+          <span class="bimpro-hero-badge-dot"></span>
+          НАМ ДОВЕРЯЕТ МИНСТРОЙ РФ
+        </div>
+        <h1>
+          Высокие <span>технологии</span><br>
+          проектирования
+        </h1>
+        <p class="bimpro-hero-desc">
+          Комплексное BIM-проектирование. Сокращаем бюджет строительства на 15% и устраняем 100% коллизий еще на этапе модели.
+        </p>
+        <div class="bimpro-hero-btns">
+          <a href="#contact" class="bimpro-hero-btn-primary">Рассчитать стоимость</a>
+          <a href="#services" class="bimpro-hero-btn-secondary">Все BIM-услуги <span class="bimpro-hero-btn-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="bimpro-hero-visual">
+        <div class="bimpro-hero-card3d">
+          <div class="bimpro-hero-card3d-line h h1"></div>
+          <div class="bimpro-hero-card3d-line h h2"></div>
+          <div class="bimpro-hero-card3d-line h h3"></div>
+          <div class="bimpro-hero-card3d-line v v1"></div>
+          <div class="bimpro-hero-card3d-line v v2"></div>
+          <div class="bimpro-hero-tag bimpro-hero-tag1">
+            <div class="bimpro-hero-tag-title"><span class="bimpro-hero-tag-dot"></span>Коллизии обнаружены</div>
+            <div class="bimpro-hero-tag-bar"><div class="bimpro-hero-tag-bar-fill"></div></div>
+          </div>
+          <div class="bimpro-hero-tag bimpro-hero-tag2">
+            <div class="bimpro-hero-tag-title">✓ Инженерные системы: OK</div>
+            <div class="bimpro-hero-tag-mono">Длина трассы: 124.5м</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bimpro-hero-stats">
+      <div class="bimpro-hero-stat">
+        <div class="bimpro-hero-stat-num">ТК 505</div>
+        <div class="bimpro-hero-stat-label">при МИНСТРОЙ</div>
+      </div>
+      <div class="bimpro-hero-stat">
+        <div class="bimpro-hero-stat-num">НОТИМ</div>
+        <div class="bimpro-hero-stat-label">Члены правления</div>
+      </div>
+      <div class="bimpro-hero-stat">
+        <div class="bimpro-hero-stat-num">5 Наград</div>
+        <div class="bimpro-hero-stat-label">от МИНСТРОЙ</div>
+      </div>
+      <div class="bimpro-hero-stat">
+        <div class="bimpro-hero-stat-num">Лидеры</div>
+        <div class="bimpro-hero-stat-label">В проектировании</div>
+      </div>
+    </div>
+  </div>
+</section>

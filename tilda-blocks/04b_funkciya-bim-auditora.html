@@ -1,0 +1,465 @@
+<!-- БЛОК 4b: Функция BIM-аудитора и BIM-сопровождение -->
+<!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+
+<style>
+.bimpro-audit {
+  font-family: 'OnestCustom', sans-serif;
+  padding: 128px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #151515;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-audit-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.bimpro-audit-bg-overlay1 { position: absolute; inset: 0; background: rgba(21,21,21,0.85); z-index: 10; }
+.bimpro-audit-bg-overlay2 { position: absolute; inset: 0; background: linear-gradient(to top, #151515, transparent, #151515); z-index: 10; }
+.bimpro-audit-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.bimpro-audit-glow1 { position: absolute; top: 0; right: 0; width: 600px; height: 600px; background: rgba(230,67,23,0.05); border-radius: 50%; filter: blur(150px); pointer-events: none; z-index: 0; }
+.bimpro-audit-glow2 { position: absolute; bottom: 0; left: 0; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+
+.bimpro-audit-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
+.bimpro-audit-header { text-align: center; margin-bottom: 64px; }
+.bimpro-audit-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(230,67,23,0.4);
+  background: linear-gradient(to right, rgba(230,67,23,0.2), transparent);
+  color: #e64317;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 32px;
+  box-shadow: 0 0 15px rgba(230,67,23,0.15);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-audit-flag-shimmer {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  transform: translateX(-100%);
+  animation: bimpro-shimmer 2s infinite;
+}
+@keyframes bimpro-shimmer { 100% { transform: translateX(100%); } }
+.bimpro-audit-flag svg { width: 16px; height: 16px; animation: bimpro-pulse 2s infinite; }
+@keyframes bimpro-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+.bimpro-audit h2 { font-family: 'BebasNeueCustom', sans-serif; font-size: clamp(36px, 5vw, 48px); color: #fff; line-height: 1.1; margin-bottom: 24px; letter-spacing: 0.03em; }
+.bimpro-audit h2 span { color: #e64317; }
+.bimpro-audit-desc { color: #cfcece; max-width: 768px; margin: 0 auto; font-size: 18px; line-height: 1.6; }
+
+/* Sub-section Title */
+.bimpro-audit-sectitle {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 32px;
+  border-left: 4px solid #e64317;
+  padding-left: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* Compare Grid */
+.bimpro-compare-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 96px; }
+@media (min-width: 1024px) { .bimpro-compare-grid { grid-template-columns: 1fr 2fr; } }
+.bimpro-compare-left { display: flex; flex-direction: column; gap: 24px; }
+.bimpro-compare-card {
+  background: rgba(26,26,26,0.85);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(207,206,206,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  transition: border-color 0.3s;
+}
+.bimpro-compare-card:hover { border-color: rgba(207,206,206,0.3); }
+.bimpro-compare-card.highlight { border-color: rgba(230,67,23,0.2); box-shadow: 0 0 20px rgba(230,67,23,0.08); }
+.bimpro-compare-card.highlight:hover { border-color: rgba(230,67,23,0.4); }
+
+.bimpro-compare-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.bimpro-compare-badge.normal { color: rgba(207,206,206,0.5); }
+.bimpro-compare-badge.normal .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(207,206,206,0.5); }
+.bimpro-compare-badge.accent { color: rgba(230,67,23,0.7); }
+.bimpro-compare-badge.accent .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(230,67,23,0.7); }
+
+.bimpro-compare-card h4 { font-family: 'BebasNeueCustom', sans-serif; font-size: 24px; color: #fff; margin-bottom: 12px; letter-spacing: 0.05em; }
+.bimpro-compare-card p { font-size: 15px; color: #cfcece; line-height: 1.6; margin: 0; }
+
+/* Dashboard Card (Right) */
+.bimpro-dashboard-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 32px 40px;
+  border: 1px solid rgba(230,67,23,0.4);
+  background: rgba(21,21,21,0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+}
+@media (min-width: 1024px) { .bimpro-dashboard-card { flex-direction: row; align-items: center; } }
+.bimpro-dashboard-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #e64317, #d13a12);
+  filter: blur(20px);
+  opacity: 0.2;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+.bimpro-dashboard-card:hover::before { opacity: 0.3; }
+
+.bimpro-dashboard-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e64317;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 20;
+}
+.bimpro-dashboard-tag svg { width: 12px; height: 12px; fill: #fff; }
+
+.bimpro-dashboard-left { position: relative; z-index: 10; flex: 5; }
+.bimpro-dashboard-left .bimpro-compare-badge.pulse .dot { animation: bimpro-pulse 1s infinite; background: #e64317; }
+.bimpro-dashboard-left h4 { font-family: 'BebasNeueCustom', sans-serif; font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 16px; line-height: 1; letter-spacing: 0.05em; }
+.bimpro-dashboard-left p { font-size: 16px; color: #cfcece; line-height: 1.6; margin-bottom: 24px; }
+.bimpro-dashboard-list { display: grid; gap: 12px; }
+.bimpro-dashboard-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #202020;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(207,206,206,0.05);
+  transition: border-color 0.2s;
+}
+.bimpro-dashboard-item:hover { border-color: rgba(230,67,23,0.3); }
+.bimpro-dashboard-item svg { width: 18px; height: 18px; color: #e64317; flex-shrink: 0; margin-top: 2px; }
+.bimpro-dashboard-item span { font-size: 14px; color: #fff; line-height: 1.4; }
+
+.bimpro-dashboard-right { position: relative; z-index: 10; flex: 7; width: 100%; }
+.bimpro-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #151515;
+  border-radius: 12px;
+  border: 1px solid rgba(207,206,206,0.2);
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(230,67,23,0.15);
+  transition: transform 0.5s, box-shadow 0.5s;
+  cursor: pointer;
+}
+.bimpro-video-wrap:hover { transform: translateY(-4px); box-shadow: 0 0 50px rgba(230,67,23,0.3); }
+.bimpro-video-wrap video, .bimpro-video-wrap iframe { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.5s, transform 0.7s; border: none; }
+.bimpro-video-wrap:hover video, .bimpro-video-wrap:hover iframe { opacity: 1; transform: scale(1.05); }
+.bimpro-video-live {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: #e64317;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 20;
+}
+.bimpro-video-live .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: bimpro-pulse 1.5s infinite; }
+.bimpro-video-play {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  z-index: 10;
+  pointer-events: none;
+}
+.bimpro-video-wrap:hover .bimpro-video-play { opacity: 0; }
+.bimpro-video-play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(230,67,23,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  box-shadow: 0 0 30px rgba(230,67,23,0.6);
+  transition: transform 0.3s;
+}
+.bimpro-video-wrap:hover .bimpro-video-play-btn { transform: scale(1.1); }
+.bimpro-video-play-btn svg { width: 28px; height: 28px; color: #fff; }
+
+/* Features Grid */
+.bimpro-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+@media (min-width: 768px) { .bimpro-features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .bimpro-features-grid { grid-template-columns: repeat(3, 1fr); } }
+.bimpro-feature-card {
+  background: rgba(26,26,26,0.85);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(207,206,206,0.1);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.bimpro-feature-card:hover { border-color: rgba(230,67,23,0.5); transform: translateY(-4px); }
+.bimpro-feature-icon {
+  width: 48px;
+  height: 48px;
+  background: #202020;
+  border: 1px solid rgba(207,206,206,0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: #e64317;
+  transition: background 0.3s, color 0.3s;
+}
+.bimpro-feature-card:hover .bimpro-feature-icon { background: #e64317; color: #fff; }
+.bimpro-feature-icon svg { width: 24px; height: 24px; }
+.bimpro-feature-card h4 { font-family: 'BebasNeueCustom', sans-serif; font-size: 20px; color: #fff; margin-bottom: 12px; letter-spacing: 0.05em; }
+.bimpro-feature-card p { font-size: 14px; color: #cfcece; line-height: 1.6; margin: 0; }
+
+/* CTA Footer */
+.bimpro-audit-cta {
+  border-top: 1px solid rgba(207,206,206,0.1);
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 1280px) { .bimpro-audit-cta { flex-direction: row; justify-content: space-between; } }
+.bimpro-metrics { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
+.bimpro-metric { text-align: center; }
+.bimpro-metric-val { font-family: 'BebasNeueCustom', sans-serif; font-size: 36px; color: #fff; margin-bottom: 4px; line-height: 1; }
+.bimpro-metric-val span { color: #e64317; }
+.bimpro-metric-label { font-size: 10px; font-weight: 700; color: #cfcece; text-transform: uppercase; letter-spacing: 0.15em; }
+.bimpro-metric-div { width: 1px; height: 48px; background: rgba(207,206,206,0.1); display: none; }
+@media (min-width: 768px) { .bimpro-metric-div { display: block; } }
+
+.bimpro-audit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px 14px;
+  background: #e64317;
+  color: #fff !important;
+  text-decoration: none;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(230,67,23,0.3);
+  white-space: nowrap;
+}
+.bimpro-audit-btn:hover { background: #d13a12; transform: scale(1.02); box-shadow: 0 0 40px rgba(230,67,23,0.4); }
+.bimpro-audit-btn svg { width: 24px; height: 24px; }
+
+</style>
+
+<section class="bimpro-audit">
+  <!-- Фоновое изображение (загрузить bg_building_half.png в Tilda, заменить URL) -->
+  <div class="bimpro-audit-bg">
+    <div class="bimpro-audit-bg-overlay1"></div>
+    <div class="bimpro-audit-bg-overlay2"></div>
+    <img src="TILDA_URL_bg_building_half" alt="" loading="lazy">
+  </div>
+  
+  <div class="bimpro-audit-glow1"></div>
+  <div class="bimpro-audit-glow2"></div>
+
+  <div class="bimpro-audit-inner">
+    
+    <!-- Заголовок -->
+    <div class="bimpro-audit-header">
+      <div class="bimpro-audit-flag">
+        <div class="bimpro-audit-flag-shimmer"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Флагманское направление
+      </div>
+      <h2>Функция BIM-аудитора<br><span>и BIM-сопровождение</span></h2>
+      <p class="bimpro-audit-desc">Мы берем на себя комплексное управление процессами информационного моделирования на вашем объекте, применяя передовые методы контроля качества.</p>
+    </div>
+
+    <!-- Сравнение подходов -->
+    <h3 class="bimpro-audit-sectitle" style="border-left-color: #cfcece; color: #cfcece;">Мы проверяем:</h3>
+    
+    <div class="bimpro-compare-grid">
+      
+      <!-- Левая колонка (Базовые подходы) -->
+      <div class="bimpro-compare-left">
+        <div class="bimpro-compare-card">
+          <div class="bimpro-compare-badge normal"><div class="dot"></div> Традиционный подход</div>
+          <h4>Ручной аудит</h4>
+          <p>Поиск коллизий и выдача отчетов проектировщикам (Excel/PDF) для последующего ручного исправления.</p>
+        </div>
+        <div class="bimpro-compare-card highlight">
+          <div class="bimpro-compare-badge accent"><div class="dot"></div> Автоматизация</div>
+          <h4>Плагины в Revit</h4>
+          <p>Передача и отслеживание статусов коллизий напрямую в среде разработки (Revit) через специализированные плагины.</p>
+        </div>
+      </div>
+
+      <!-- Правая колонка (Топ услуга BI) -->
+      <div class="bimpro-dashboard-card">
+        <div class="bimpro-dashboard-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Топ услуга
+        </div>
+        
+        <div class="bimpro-dashboard-left">
+          <div class="bimpro-compare-badge accent pulse"><div class="dot"></div> Умный контроль</div>
+          <h4>Аналитический аудит</h4>
+          <p>Осуществляем глубокий и прозрачный контроль информационной модели с помощью визуальных дашбордов BI-аналитики.</p>
+          
+          <div class="bimpro-dashboard-list">
+            <div class="bimpro-dashboard-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <span>Контроль ТЭП и объемов</span>
+            </div>
+            <div class="bimpro-dashboard-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <span>Жесткий нормоконтроль</span>
+            </div>
+            <div class="bimpro-dashboard-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <span>Валидация данных</span>
+            </div>
+            <div class="bimpro-dashboard-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <span>Контроль морфологии, нумерации и типизации</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Видео из Kinescope -->
+        <div class="bimpro-dashboard-right">
+          <div class="bimpro-video-wrap">
+            <iframe src="https://kinescope.io/embed/994Ny3xZuyzM8K6B2Db246?autoplay=1&loop=1&muted=1&controls=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;" style="border: none;" playsinline></iframe>
+            <div class="bimpro-video-live"><div class="dot"></div> Live Demo</div>
+            <div class="bimpro-video-play">
+              <div class="bimpro-video-play-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Базовый функционал 6 карточек -->
+    <h3 class="bimpro-audit-sectitle">Базовый функционал BIM-аудитора</h3>
+    <div class="bimpro-features-grid">
+      <!-- 1 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h2"/><path d="M8 17h2"/><path d="M14 13h2"/><path d="M14 17h2"/></svg></div>
+        <h4>1. Согласование BEP</h4>
+        <p>Участие в переговорах с проектными организациями в части разработки «Плана выполнения BIM проекта» (BEP).</p>
+      </div>
+      <!-- 2 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>2. Проверка BIM-моделей</h4>
+        <p>Проверка на соответствие требованиям Стандарта информационного моделирования и BEP. Формирование отчетов.</p>
+      </div>
+      <!-- 3 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div>
+        <h4>3. Консультации подрядчиков</h4>
+        <p>Совещания по вопросам моделирования, консультации по результатам проверки моделей и при работе в СОД.</p>
+      </div>
+      <!-- 4 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h4>4. Экспорт объемов</h4>
+        <p>Автоматизированная и точная выгрузка ведомостей объемов работ (ВОР) напрямую из BIM-модели.</p>
+      </div>
+      <!-- 5 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
+        <h4>5. Взаимодействие участников</h4>
+        <p>Организация эффективного взаимодействия всех участников проекта при работе с BIM-технологиями.</p>
+      </div>
+      <!-- 6 -->
+      <div class="bimpro-feature-card">
+        <div class="bimpro-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h4>6. Связь с Заказчиком</h4>
+        <p>Организация регулярного взаимодействия с Заказчиком, прозрачная отчетность и защита интересов.</p>
+      </div>
+    </div>
+
+    <!-- Футер с метриками и кнопкой -->
+    <div class="bimpro-audit-cta">
+      <div class="bimpro-metrics">
+        <div class="bimpro-metric"><div class="bimpro-metric-val">150<span>+</span></div><div class="bimpro-metric-label">Проверенных<br>моделей</div></div>
+        <div class="bimpro-metric-div"></div>
+        <div class="bimpro-metric"><div class="bimpro-metric-val">15 000<span>+</span></div><div class="bimpro-metric-label">Выставлено<br>замечаний</div></div>
+        <div class="bimpro-metric-div"></div>
+        <div class="bimpro-metric"><div class="bimpro-metric-val">1<span>млн+</span></div><div class="bimpro-metric-label">М²<br>проверено</div></div>
+        <div class="bimpro-metric-div"></div>
+        <div class="bimpro-metric"><div class="bimpro-metric-val" style="font-size:42px; margin-top:-4px;">∞</div><div class="bimpro-metric-label">Обработано</div></div>
+      </div>
+      <a href="#contact" class="bimpro-audit-btn">
+        Заказать сопровождение
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>

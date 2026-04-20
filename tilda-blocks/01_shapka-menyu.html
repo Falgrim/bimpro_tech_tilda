@@ -1,5 +1,6 @@
-<!-- БЛОК 1: Шапка/Меню -->
+<!-- БЛОК 1: Шапка/Меню (V4) -->
 <!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ИЗОБРАЖЕНИЯ: header_logo.png — обновить URL после загрузки в библиотеку Tilda -->
 
 <style>
 .bimpro-nav {
@@ -7,7 +8,12 @@
   position: fixed;
   width: 100%;
   z-index: 9999;
-  transition: all 0.3s;
+  transition: background 0.3s, padding 0.3s, border-color 0.3s;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  padding: 24px 0;
+}
+.bimpro-nav.is-scrolled {
   background: rgba(27, 27, 27, 0.98);
   border-bottom: 1px solid rgba(207, 206, 206, 0.1);
   padding: 16px 0;
@@ -20,20 +26,21 @@
   justify-content: space-between;
   align-items: center;
 }
-.bimpro-nav-logo { height: 40px; width: auto; }
+.bimpro-nav-logo { height: 40px; width: auto; object-fit: contain; }
 .bimpro-nav-links { display: flex; align-items: center; gap: 32px; }
 .bimpro-nav-link {
   font-size: 13px;
   font-weight: 500;
-  color: #fff !important;
+  color: #cfcece !important;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   border-bottom: 1px solid transparent;
   padding-bottom: 4px;
   transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
 }
-.bimpro-nav-link:hover { color: #e64317 !important; border-color: #e64317; }
+.bimpro-nav-link:hover { color: #fff !important; border-color: #e64317; }
 .bimpro-nav-divider { width: 1px; height: 20px; background: rgba(207,206,206,0.2); flex-shrink: 0; }
 .bimpro-nav-bimpro {
   font-size: 13px;
@@ -48,26 +55,163 @@
   border-bottom: 1px solid transparent;
   padding-bottom: 4px;
   transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
 }
 .bimpro-nav-bimpro:hover { color: #fff !important; border-color: #e64317; }
 .bimpro-nav-bimpro svg { flex-shrink: 0; }
+
+/* Phone/CTA swap wrapper */
+.bimpro-nav-action-wrap {
+  position: relative;
+  width: 280px;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 8px;
+}
 .bimpro-nav-phone {
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 24px;
   color: #fff !important;
   text-decoration: none;
   letter-spacing: 0.05em;
-  transition: color 0.2s;
+  transition: color 0.2s, opacity 0.5s, transform 0.5s;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  white-space: nowrap;
 }
 .bimpro-nav-phone:hover { color: #d13a12 !important; }
-@media (max-width: 768px) {
+.bimpro-nav-phone.is-hidden {
+  opacity: 0;
+  transform: translateY(calc(-50% + 50px));
+  pointer-events: none;
+}
+.bimpro-nav-cta {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 18px;
+  color: #fff !important;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  background: #e64317;
+  padding: 9px 20px 7px;
+  border-radius: 4px;
+  transition: background 0.2s, opacity 0.5s, transform 0.5s;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(calc(-50% - 50px));
+  opacity: 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(230,67,23,0.4);
+  pointer-events: none;
+}
+.bimpro-nav-cta:hover { background: #d13a12 !important; color: #fff !important; }
+.bimpro-nav-cta.is-visible {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+/* Mobile hamburger button */
+.bimpro-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  outline: none;
+}
+.bimpro-nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.bimpro-nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.bimpro-nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.bimpro-nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile dropdown menu */
+.bimpro-nav-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s;
+  opacity: 0;
+  background: rgba(27, 27, 27, 0.98);
+  border-top: 1px solid transparent;
+}
+.bimpro-nav-mobile.is-open {
+  max-height: 600px;
+  opacity: 1;
+  border-top-color: rgba(207,206,206,0.1);
+}
+.bimpro-nav-mobile-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bimpro-nav-mobile-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #cfcece !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: color 0.2s;
+}
+.bimpro-nav-mobile-link:hover { color: #e64317 !important; }
+.bimpro-nav-mobile-divider { height: 1px; background: rgba(207,206,206,0.1); margin: 4px 0; }
+.bimpro-nav-mobile-bimpro {
+  font-size: 18px;
+  font-weight: 500;
+  color: #e64317 !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.bimpro-nav-mobile-bimpro:hover { color: #fff !important; }
+.bimpro-nav-mobile-call {
+  display: block;
+  text-align: center;
+  padding: 12px 24px 10px;
+  background: #e64317;
+  color: #fff !important;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.bimpro-nav-mobile-call:hover { background: #d13a12; }
+
+@media (max-width: 1024px) {
   .bimpro-nav-links { display: none; }
+  .bimpro-nav-hamburger { display: flex; }
 }
 </style>
 
-<nav class="bimpro-nav">
+<nav class="bimpro-nav" id="bimpro-page-top">
   <div class="bimpro-nav-inner">
     <a href="#">
+      <!-- URL header_logo.png уже существует в Tilda -->
       <img src="https://static.tildacdn.com/tild3739-3837-4462-b264-376333613836/header_logo.png" alt="BIMPRO" class="bimpro-nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <span style="display:none; align-items:center; gap:8px; font-family:'BebasNeueCustom',sans-serif; font-size:28px; color:#fff;">
         <span style="width:32px;height:32px;background:#e64317;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;">B</span>
@@ -85,7 +229,101 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>К BIMPRO</span>
       </a>
-      <a href="tel:+78122103602" class="bimpro-nav-phone">+7 812 210 36 02</a>
+      <div class="bimpro-nav-action-wrap">
+        <a href="tel:+78123301040" class="bimpro-nav-phone" id="bimpro-nav-phone">+7 812 330 10 40</a>
+        <a href="#contact" class="bimpro-nav-cta" id="bimpro-nav-cta">Рассчитать стоимость</a>
+      </div>
+    </div>
+    <button class="bimpro-nav-hamburger" id="bimpro-nav-hamburger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="bimpro-nav-mobile" id="bimpro-nav-mobile">
+    <div class="bimpro-nav-mobile-inner">
+      <a href="#services" class="bimpro-nav-mobile-link" id="bimpro-m-services">BIM-услуги</a>
+      <a href="#trust" class="bimpro-nav-mobile-link" id="bimpro-m-trust">Награды</a>
+      <a href="#training" class="bimpro-nav-mobile-link" id="bimpro-m-training">Обучение</a>
+      <a href="#benefits" class="bimpro-nav-mobile-link" id="bimpro-m-benefits">Преимущества</a>
+      <a href="#cases" class="bimpro-nav-mobile-link" id="bimpro-m-cases">Кейсы</a>
+      <div class="bimpro-nav-mobile-divider"></div>
+      <a href="https://bimpro.ru" target="_blank" rel="noopener noreferrer" class="bimpro-nav-mobile-bimpro" id="bimpro-m-bimpro">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        К BIMPRO
+      </a>
+      <a href="tel:+78123301040" class="bimpro-nav-mobile-call">Позвонить</a>
     </div>
   </div>
 </nav>
+
+<script>
+(function(){
+  var nav = document.querySelector('.bimpro-nav');
+  var phone = document.getElementById('bimpro-nav-phone');
+  var cta = document.getElementById('bimpro-nav-cta');
+  var hamburger = document.getElementById('bimpro-nav-hamburger');
+  var mobileMenu = document.getElementById('bimpro-nav-mobile');
+
+  function handleScroll(){
+    var scrollY = window.scrollY || window.pageYOffset;
+    if(scrollY > 20){
+      nav.classList.add('is-scrolled');
+    } else {
+      nav.classList.remove('is-scrolled');
+    }
+    var heroBtn = document.getElementById('hero-calc-btn');
+    var showCta = false;
+    if(heroBtn){
+      var rect = heroBtn.getBoundingClientRect();
+      showCta = rect.bottom < 80;
+    } else {
+      showCta = scrollY > 600;
+    }
+    if(phone && cta){
+      if(showCta){
+        phone.classList.add('is-hidden');
+        cta.classList.add('is-visible');
+      } else {
+        phone.classList.remove('is-hidden');
+        cta.classList.remove('is-visible');
+      }
+    }
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  if(hamburger && mobileMenu){
+    hamburger.addEventListener('click', function(){
+      hamburger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+    });
+    // Close mobile menu on link click
+    var mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function(link){
+      link.addEventListener('click', function(){
+        hamburger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+      });
+    });
+  }
+
+  // Scroll to top helper
+  function bimproScrollPageTop(){
+    try{ window.scrollTo({top:0,left:0,behavior:'smooth'}); }catch(x){ window.scrollTo(0,0); }
+    var ar=document.getElementById('allrecords');
+    if(ar&&ar.scrollTop>0) try{ ar.scrollTo({top:0,behavior:'smooth'}); }catch(x3){ ar.scrollTop=0; }
+    var tb=document.querySelector('.t-body');
+    if(tb&&tb.scrollTop>0) try{ tb.scrollTo({top:0,behavior:'smooth'}); }catch(x4){ tb.scrollTop=0; }
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');
+    if(!a)return;
+    var inFooter=a.closest('.t-footer,footer,#t-footer,.t786,.t786__wrapper,.t786__container');
+    var in702=a.closest('.t702');
+    if(!inFooter&&!in702)return;
+    var h=(a.getAttribute('href')||'').trim();
+    var voidLink=h==='#'||h==='#top'||h==='javascript:void(0)'||h==='javascript:;'||h==='';
+    if(in702&&(voidLink||/наверх/i.test(a.textContent||''))){ e.preventDefault(); bimproScrollPageTop(); return; }
+    if(inFooter&&(h==='#'||h==='#top')){ e.preventDefault(); bimproScrollPageTop(); }
+  },true);
+})();
+</script>

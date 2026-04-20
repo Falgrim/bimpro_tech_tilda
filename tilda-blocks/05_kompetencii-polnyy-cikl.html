@@ -1,4 +1,4 @@
-<!-- БЛОК 5: BIM-услуги: полный цикл цифрового строительства -->
+<!-- БЛОК 5: BIM-услуги: полный цикл цифрового строительства (V4) -->
 <!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
 <!-- ID для якоря: #services -->
 
@@ -11,19 +11,28 @@
   overflow: hidden;
 }
 .bimpro-services-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.bimpro-services-header { margin-bottom: 64px; }
+.bimpro-services-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 64px;
+}
 .bimpro-services-label {
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 20px;
   color: #e64317;
   letter-spacing: 0.2em;
   margin-bottom: 8px;
+  text-transform: uppercase;
 }
 .bimpro-services h2 {
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 48px;
   color: #fff;
-  line-height: 1;
+  line-height: 0.95;
+  margin: 0;
 }
 .bimpro-services-grid {
   display: grid;
@@ -39,10 +48,7 @@
   transition: border-color 0.2s, background 0.2s;
   cursor: pointer;
 }
-.bimpro-services-card:hover {
-  border-color: #e64317;
-  background: #202020;
-}
+.bimpro-services-card:hover { border-color: #e64317; background: #202020; }
 .bimpro-services-card-top {
   display: flex;
   justify-content: space-between;
@@ -58,38 +64,183 @@
   align-items: center;
   justify-content: center;
   color: #e64317;
+  transition: background 0.2s, color 0.2s;
 }
-.bimpro-services-card-icon svg {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-}
+.bimpro-services-card:hover .bimpro-services-card-icon { background: #e64317; color: #fff; }
+.bimpro-services-card-icon svg { width: 28px; height: 28px; flex-shrink: 0; }
 .bimpro-services-card-num {
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 48px;
   color: rgba(207,206,206,0.2);
+  line-height: 1;
+  transition: color 0.2s;
 }
+.bimpro-services-card:hover .bimpro-services-card-num { color: rgba(207,206,206,0.4); }
 .bimpro-services-card h4 {
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 24px;
   color: #fff;
   margin-bottom: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
 }
-.bimpro-services-card p {
-  color: #cfcece;
-  font-size: 14px;
-  line-height: 1.6;
-}
+.bimpro-services-card p { color: #cfcece; font-size: 14px; line-height: 1.6; margin: 0; }
 .bimpro-services-more {
   font-size: 12px;
   font-weight: 600;
   color: #e64317;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-top: 16px;
   opacity: 0;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .bimpro-services-card:hover .bimpro-services-more { opacity: 1; }
+
+/* CUSTOM TASK BLOCK */
+.bimpro-custom-task {
+  margin-bottom: 80px;
+  padding: 48px;
+  border-radius: 16px;
+  border: 1px solid rgba(207,206,206,0.2);
+  background: linear-gradient(135deg, #202020, #1b1b1b);
+  position: relative;
+  overflow: hidden;
+}
+.bimpro-custom-task-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background: rgba(230,67,23,0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.bimpro-custom-task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.bimpro-custom-task h3 {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 24px;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+.bimpro-custom-task-text { color: #cfcece; font-size: 16px; line-height: 1.6; margin-bottom: 14px; font-family: 'OnestCustom', sans-serif; }
+.bimpro-custom-task-text strong { color: #fff; }
+.bimpro-custom-task-form {
+  background: rgba(21,21,21,0.5);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(207,206,206,0.1);
+}
+.bimpro-custom-task-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.bimpro-custom-task-input {
+  width: 100%;
+  background: #151515;
+  border: 1px solid rgba(207,206,206,0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'OnestCustom', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.bimpro-custom-task-input:focus { border-color: #e64317; }
+.bimpro-custom-task-input::placeholder { color: rgba(207,206,206,0.5); }
+.bimpro-custom-task-btn {
+  width: 100%;
+  background: #e64317;
+  color: #fff;
+  border: none;
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  padding: 14px 24px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 0 20px rgba(230,67,23,0.3);
+}
+.bimpro-custom-task-btn:hover { background: #d13a12; transform: scale(1.01); }
+.bimpro-custom-task-note {
+  font-size: 12px;
+  color: rgba(207,206,206,0.5);
+  text-align: center;
+  margin-top: 12px;
+  font-family: 'OnestCustom', sans-serif;
+}
+
+/* SOFTWARE STRIP */
+.bimpro-software {
+  border-top: 1px solid rgba(207,206,206,0.1);
+  padding-top: 64px;
+}
+.bimpro-software-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.bimpro-software-line { height: 1px; width: 48px; background: rgba(207,206,206,0.2); }
+.bimpro-software-label {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 16px;
+  color: rgba(207,206,206,0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.bimpro-software-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.bimpro-software-list::-webkit-scrollbar { display: none; }
+.bimpro-software-item {
+  position: relative;
+  flex-shrink: 0;
+  padding: 14px 32px;
+  background: #1a1a1a;
+  border: 1px solid rgba(207,206,206,0.1);
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  min-width: 140px;
+  text-align: center;
+}
+.bimpro-software-item:hover { border-color: rgba(230,67,23,0.5); }
+.bimpro-software-item-tl { position: absolute; top: 0; left: 0; width: 8px; height: 8px; border-top: 1px solid rgba(207,206,206,0.2); border-left: 1px solid rgba(207,206,206,0.2); transition: border-color 0.2s; }
+.bimpro-software-item-br { position: absolute; bottom: 0; right: 0; width: 8px; height: 8px; border-bottom: 1px solid rgba(207,206,206,0.2); border-right: 1px solid rgba(207,206,206,0.2); transition: border-color 0.2s; }
+.bimpro-software-item:hover .bimpro-software-item-tl,
+.bimpro-software-item:hover .bimpro-software-item-br { border-color: #e64317; }
+.bimpro-software-name {
+  font-family: 'BebasNeueCustom', sans-serif;
+  font-size: 18px;
+  color: #cfcece;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.bimpro-software-item:hover .bimpro-software-name { color: #fff; }
+
+/* Modal */
 .bimpro-modal-overlay {
   display: none;
   position: fixed;
@@ -125,6 +276,8 @@
   color: #fff;
   margin: 0;
   padding-right: 16px;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
 }
 .bimpro-modal-close {
   width: 40px;
@@ -156,9 +309,9 @@
 }
 .bimpro-modal-cta {
   display: inline-block;
-  padding: 12px 32px;
+  padding: 12px 32px 10px;
   background: #e64317;
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   font-family: 'BebasNeueCustom', sans-serif;
   font-size: 20px;
@@ -167,22 +320,31 @@
   transition: background 0.2s;
 }
 .bimpro-modal-cta:hover { background: #d13a12; }
+
 @media (max-width: 1024px) {
   .bimpro-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .bimpro-custom-task-grid { grid-template-columns: 1fr; }
+  .bimpro-custom-task { padding: 32px 24px; }
 }
 @media (max-width: 640px) {
   .bimpro-services-grid { grid-template-columns: 1fr; }
+  .bimpro-custom-task-form-row { grid-template-columns: 1fr; }
 }
 </style>
 
 <section class="bimpro-services" id="services">
   <div class="bimpro-services-inner">
     <div class="bimpro-services-header">
-      <div class="bimpro-services-label">BIM-услуги</div>
-      <h2>Полный цикл<br>цифрового строительства</h2>
+      <div>
+        <div class="bimpro-services-label">BIM-услуги</div>
+        <h2>Полный цикл<br>цифрового строительства</h2>
+      </div>
     </div>
     <div class="bimpro-services-grid" id="bimpro-services-grid">
-      <div class="bimpro-services-card" data-modal-title="Разработка BIM-моделей по 2D" data-modal-details="Превращаем 2D-документацию (PDF/DWG) в информационную модель с необходимым набором данных и геометрией в 3D.|Выявляем пространственные и проектные ошибки меж разделов и внутри них еще до выхода на стройплощадку.|Результат: выверенная модель (LOD 200–500) для всех разделов: АР, КР, КЖ, КМ и инженерные сети.">
+      <!-- 01 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Разработка BIM-моделей по 2D"
+        data-modal-details="Превращаем 2D-документацию (PDF/DWG) в информационную модель с необходимым набором данных и геометрией в 3D.|Выявляем пространственные и проектные ошибки меж разделов и внутри них ещё до выхода на стройплощадку.|Результат: выверенная модель (LOD 200–500) для всех разделов: АР, КР, КЖ, КМ и инженерные сети.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></div>
           <span class="bimpro-services-card-num">01</span>
@@ -191,7 +353,10 @@
         <p>Перевод плоских чертежей (PDF/DWG) в детализированную информационную 3D-модель. Полное соответствие исходной документации с устранением неточностей.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="Координация и обнаружение коллизий" data-modal-details="Сборка сводной модели и настройка правил проверки на коллизии (пересечения, дублирования) в Navisworks.|&quot;Работа над ошибками&quot;: отделяем критические коллизии от допустимых пересечений.|Выдача понятных отчетов с ID элементов для быстрого исправления проектировщиками.">
+      <!-- 02 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Координация и обнаружение коллизий"
+        data-modal-details="Сборка сводной модели и настройка правил проверки на коллизии (пересечения, дублирования) в Navisworks.|«Работа над ошибками»: отделяем критические коллизии от допустимых пересечений.|Выдача понятных отчётов с ID элементов для быстрого исправления проектировщиками.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4"/><path d="M6 12H2"/><path d="M12 6V2"/><path d="M12 22v-4"/></svg></div>
           <span class="bimpro-services-card-num">02</span>
@@ -200,7 +365,10 @@
         <p>Автоматизированная проверка пересечений инженерных сетей и конструкций. Формирование отчетов и проведение координационных совещаний.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="BIM-модель на основе облака точек" data-modal-details="Поднятие BIM-модели, полностью соответствующей фактическому положению конструкций у объекта.|Идеальная база для проектов реконструкции, реставрации и контроля качества строительства (план-факт).|Выдаем монтажные схемы конструкций и коммуникаций для передачи на стройплощадку.">
+      <!-- 03 -->
+      <div class="bimpro-services-card"
+        data-modal-title="BIM-модель на основе облака точек"
+        data-modal-details="Поднятие BIM-модели, полностью соответствующей фактическому положению конструкций у объекта.|Идеальная база для проектов реконструкции, реставрации и контроля качества строительства (план-факт).|Выдаем монтажные схемы конструкций и коммуникаций для передачи на стройплощадку.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
           <span class="bimpro-services-card-num">03</span>
@@ -209,7 +377,10 @@
         <p>Высокоточные обмеры существующих зданий с созданием облака точек. Идеально для реконструкции и исполнительной съемки.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="4D/5D Моделирование" data-modal-details="BIM 4D: Визуализация графика строительства во времени для выявления логистических накладок.|BIM 5D: Модель как основа для автоматического получения смет и контроля бюджета в динамике.|Эффективный инструмент для защиты выполненных объемов (КС-2/КС-3) и управления поставками.">
+      <!-- 04 -->
+      <div class="bimpro-services-card"
+        data-modal-title="4D/5D Моделирование"
+        data-modal-details="BIM 4D: Визуализация графика строительства во времени для выявления логистических накладок.|BIM 5D: Модель как основа для автоматического получения смет и контроля бюджета в динамике.|Эффективный инструмент для защиты выполненных объёмов (КС-2/КС-3) и управления поставками.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
           <span class="bimpro-services-card-num">04</span>
@@ -218,16 +389,22 @@
         <p>Интеграция календарного графика (время) и стоимости (смета) в информационную модель для визуализации хода строительства.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="Внедрение BIM в процессы" data-modal-details="Глубокий аудит процессов компании и разработка индивидуальной дорожной карты перехода на BIM.|Создание нормативной базы: EIR (требования), BEP (план реализации), регламенты и шаблоны проектов.|Развертывание среды общих данных (CDE) и сопровождение пилотного проекта для закрепления навыков.">
+      <!-- 05 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Внедрение BIM в процессы"
+        data-modal-details="Глубокий аудит процессов компании и разработка индивидуальной дорожной карты перехода на BIM.|Создание нормативной базы: EIR (требования), BEP (план реализации), регламенты и шаблоны проектов.|Развёртывание среды общих данных (CDE) и сопровождение пилотного проекта для закрепления навыков.">
         <div class="bimpro-services-card-top">
-          <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2 0l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2 0l-.15.08a2 2 0 0 1-2 0L2.72 7.93a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1 1 1.73l.43.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2 0l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2 0l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2 0l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
           <span class="bimpro-services-card-num">05</span>
         </div>
         <h4>Внедрение BIM в процессы</h4>
         <p>Аудит текущих процессов, разработка стандартов организации (EIR, BEP), настройка среды общих данных (CDE) и шаблонов.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="Обучение команды" data-modal-details="Практические курсы на реальных задачах по различным инструментам в онлайн или оффлайн форматах.|Формирование образовательной программы под уровень подготовки сотрудников и специфику проектов компании.|Пост-тренинговая поддержка, консультации на первых проектах и итоговая сертификация.">
+      <!-- 06 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Обучение команды"
+        data-modal-details="Практические курсы на реальных задачах по различным инструментам в онлайн или оффлайн форматах.|Формирование образовательной программы под уровень подготовки сотрудников и специфику проектов компании.|Пост-тренинговая поддержка, консультации на первых проектах и итоговая сертификация.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
           <span class="bimpro-services-card-num">06</span>
@@ -236,7 +413,10 @@
         <p>Корпоративные тренинги по Revit, Navisworks и Civil 3D. Повышение квалификации сотрудников и адаптация к новым регламентам.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="Подготовка моделей к экспертизам и АГР" data-modal-details="Аудит и адаптация BIM-моделей на соответствие актуальным требованиям ЦГЭ/ГГЭ (классификаторы, атрибуты).|Формирование Пояснительной Записки (ПЗ) в формате XML, подготовка IFC (в т.ч. в контексте НПМ и ВПМ) и валидация атрибутивного состава.|Техническое сопровождение и оперативное внесение правок до получения положительного заключения.">
+      <!-- 07 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Подготовка моделей к экспертизам и АГР"
+        data-modal-details="Аудит и адаптация BIM-моделей на соответствие актуальным требованиям ЦГЭ/ГГЭ (классификаторы, атрибуты).|Формирование Пояснительной Записки (ПЗ) в формате XML, подготовка IFC (в т.ч. НПМ и ВПМ) и валидация атрибутивного состава.|Техническое сопровождение и оперативное внесение правок до получения положительного заключения.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
           <span class="bimpro-services-card-num">07</span>
@@ -245,7 +425,10 @@
         <p>Проверка и доработка моделей для госэкспертизы, формирование пояснительной записки (ПЗ) в формате XML.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="BIM-сопровождение" data-modal-details="Выполнение функций службы BIM-заказчика: составление грамотного ТЗ на проектирование (в т.ч. на BIM - EIR).|Регулярный аудит моделей подрядчиков: проверка на коллизии, информационную наполненность и стандарты.|Администрирование среды общих данных (CDE) и решение технических конфликтов между участниками.">
+      <!-- 08 -->
+      <div class="bimpro-services-card"
+        data-modal-title="BIM-сопровождение"
+        data-modal-details="Выполнение функций службы BIM-заказчика: составление грамотного ТЗ на проектирование (в т.ч. на BIM — EIR).|Регулярный аудит моделей подрядчиков: проверка на коллизии, информационную наполненность и стандарты.|Администрирование среды общих данных (CDE) и решение технических конфликтов между участниками.">
         <div class="bimpro-services-card-top">
           <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <span class="bimpro-services-card-num">08</span>
@@ -254,9 +437,12 @@
         <p>Функция внешнего BIM-менеджера: контроль подрядчиков, проверка моделей на соответствие требованиям заказчика.</p>
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
-      <div class="bimpro-services-card" data-modal-title="Семейства Revit" data-modal-details="Разработка параметрических семейств по стандартам ADSK или требованиям заказчика.|Оптимизация геометрии: баланс между качественной визуализацией и быстродействием семейства в модели.|Гарантия корректного отображения в спецификациях, на планах (УГО) и в расчетах инженерных систем.">
+      <!-- 09 -->
+      <div class="bimpro-services-card"
+        data-modal-title="Семейства Revit"
+        data-modal-details="Разработка параметрических семейств по стандартам ADSK или требованиям заказчика.|Оптимизация геометрии: баланс между качественной визуализацией и быстродействием семейства в модели.|Гарантия корректного отображения в спецификациях, на планах (УГО) и в расчётах инженерных систем.">
         <div class="bimpro-services-card-top">
-          <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.75 12h5.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1Z"/><path d="M1.75 12h5.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1Z"/><path d="M9.25 1.75h5.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1Z"/><path d="M9.25 12h5.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1Z"/></svg></div>
+          <div class="bimpro-services-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.75 12h5.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1Z" transform="translate(-12,-12)"/><rect x="1.75" y="1.75" width="7.5" height="7.5" rx="1"/><rect x="14.75" y="1.75" width="7.5" height="7.5" rx="1"/><rect x="1.75" y="14.75" width="7.5" height="7.5" rx="1"/><rect x="14.75" y="14.75" width="7.5" height="7.5" rx="1"/></svg></div>
           <span class="bimpro-services-card-num">09</span>
         </div>
         <h4>Семейства Revit</h4>
@@ -264,8 +450,11 @@
         <span class="bimpro-services-more">Подробнее →</span>
       </div>
     </div>
+
   </div>
 </section>
+
+<!-- MODAL -->
 <div id="bimpro-services-modal" class="bimpro-modal-overlay">
   <div class="bimpro-modal">
     <div class="bimpro-modal-header">
@@ -278,32 +467,45 @@
       <ul id="bimpro-services-modal-list"></ul>
     </div>
     <div class="bimpro-modal-footer">
-      <a href="#contact" class="bimpro-modal-cta">Обсудить проект</a>
+      <a href="#contact" class="bimpro-modal-cta" id="bimpro-services-modal-cta">Обсудить проект</a>
     </div>
   </div>
 </div>
+
 <script>
 (function(){
-  var overlay=document.getElementById('bimpro-services-modal');
-  var titleEl=document.getElementById('bimpro-services-modal-title');
-  var listEl=document.getElementById('bimpro-services-modal-list');
-  var grid=document.getElementById('bimpro-services-grid');
-  if(!overlay||!titleEl||!listEl||!grid)return;
-  function openModal(title,details){
-    titleEl.textContent=title;
-    listEl.innerHTML='';
-    details.split('|').forEach(function(d){var li=document.createElement('li');li.textContent=d;listEl.appendChild(li);});
+  var overlay = document.getElementById('bimpro-services-modal');
+  var titleEl = document.getElementById('bimpro-services-modal-title');
+  var listEl = document.getElementById('bimpro-services-modal-list');
+  var ctaEl = document.getElementById('bimpro-services-modal-cta');
+  var grid = document.getElementById('bimpro-services-grid');
+  if(!overlay || !titleEl || !listEl || !grid) return;
+
+  function openModal(title, details){
+    titleEl.textContent = title;
+    listEl.innerHTML = '';
+    details.split('|').forEach(function(d){
+      var t = d.trim();
+      if(t){ var li = document.createElement('li'); li.textContent = t; listEl.appendChild(li); }
+    });
     overlay.classList.add('is-open');
-    document.body.style.overflow='hidden';
+    document.body.style.overflow = 'hidden';
   }
-  function closeModal(){overlay.classList.remove('is-open');document.body.style.overflow='';}
-  grid.addEventListener('click',function(e){
-    var card=e.target.closest('.bimpro-services-card');
-    if(card&&card.dataset.modalTitle){e.preventDefault();e.stopPropagation();openModal(card.dataset.modalTitle,card.dataset.modalDetails);}
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  grid.addEventListener('click', function(e){
+    var card = e.target.closest('.bimpro-services-card');
+    if(card && card.dataset.modalTitle){
+      e.preventDefault(); e.stopPropagation();
+      openModal(card.dataset.modalTitle, card.dataset.modalDetails);
+    }
   });
-  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
-  overlay.querySelector('.bimpro-modal-close').addEventListener('click',closeModal);
-  overlay.querySelector('.bimpro-modal-cta').addEventListener('click',closeModal);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeModal();});
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  overlay.querySelector('.bimpro-modal-close').addEventListener('click', closeModal);
+  if(ctaEl) ctaEl.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal(); });
 })();
 </script>
