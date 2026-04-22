@@ -10,7 +10,7 @@
   position: relative;
   overflow: hidden;
 }
-.bimpro-services-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-services-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
 .bimpro-services-header {
   display: flex;
   flex-wrap: wrap;
@@ -29,10 +29,12 @@
 }
 .bimpro-services h2 {
   font-family: 'BebasNeueCustom', sans-serif;
-  font-size: 48px;
+  font-size: clamp(32px, 6vw, 48px);
   color: #fff;
   line-height: 0.95;
   margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .bimpro-services-grid {
   display: grid;
@@ -131,11 +133,13 @@
 }
 .bimpro-custom-task h3 {
   font-family: 'BebasNeueCustom', sans-serif;
-  font-size: 40px;
+  font-size: clamp(26px, 4vw, 40px);
   color: #fff;
   margin-bottom: 24px;
   letter-spacing: 0.03em;
   line-height: 1;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .bimpro-custom-task-text { color: #cfcece; font-size: 16px; line-height: 1.6; margin-bottom: 14px; font-family: 'OnestCustom', sans-serif; }
 .bimpro-custom-task-text strong { color: #fff; }
@@ -321,14 +325,31 @@
 }
 .bimpro-modal-cta:hover { background: #d13a12; }
 
+.bimpro-services-grid > *,
+.bimpro-custom-task-grid > * { min-width: 0; }
+
 @media (max-width: 1024px) {
-  .bimpro-services-grid { grid-template-columns: repeat(2, 1fr); }
-  .bimpro-custom-task-grid { grid-template-columns: 1fr; }
-  .bimpro-custom-task { padding: 32px 24px; }
+  .bimpro-services { padding: 80px 0; }
+  .bimpro-services-grid { grid-template-columns: repeat(2, 1fr); margin-bottom: 64px; }
+  .bimpro-custom-task-grid { grid-template-columns: 1fr; gap: 28px; }
+  .bimpro-custom-task { padding: 32px 24px; margin-bottom: 64px; }
+  .bimpro-services-header { margin-bottom: 48px; }
 }
 @media (max-width: 640px) {
-  .bimpro-services-grid { grid-template-columns: 1fr; }
+  .bimpro-services { padding: 64px 0; }
+  .bimpro-services-inner { padding: 0 16px; }
+  .bimpro-services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .bimpro-services-card { padding: 24px; }
   .bimpro-custom-task-form-row { grid-template-columns: 1fr; }
+  .bimpro-custom-task { padding: 24px 20px; border-radius: 14px; }
+  .bimpro-custom-task-form { padding: 18px; }
+  .bimpro-software { padding-top: 40px; }
+  .bimpro-software-list { justify-content: flex-start; gap: 12px; padding: 0 16px 8px; }
+  .bimpro-software-item { min-width: 120px; padding: 12px 20px; }
+  .bimpro-modal-header { padding: 16px 20px; }
+  .bimpro-modal-header h3 { font-size: 22px; }
+  .bimpro-modal-body { padding: 20px; }
+  .bimpro-modal-footer { padding: 16px 20px; text-align: center; }
 }
 </style>
 

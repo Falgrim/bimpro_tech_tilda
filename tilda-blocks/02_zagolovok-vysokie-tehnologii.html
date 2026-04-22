@@ -629,19 +629,13 @@
 .bimpro-herostats-grid > *,
 .bimpro-director-grid > * { min-width: 0; }
 
-/* Responsive */
-/* ≥1280px: двухколоночная раскладка CTA «оффер / форма» (как в V4 на xl) */
-@media (min-width: 1280px) {
-  .bimpro-hero-cta-inner {
-    grid-template-columns: 7fr 5fr;
-    gap: 32px;
-  }
-  .bimpro-hero-cta-form-side {
-    border-left: 1px solid rgba(255,255,255,0.05);
-    padding-left: 32px;
-  }
-}
+/* Global overflow safety — prevents horizontal scroll leaked from any child */
+.bimpro-hero,
+.bimpro-herostats,
+.bimpro-hero-cta-dock,
+.bimpro-director { max-width: 100%; }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .bimpro-hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .bimpro-hero-visual { display: none; }

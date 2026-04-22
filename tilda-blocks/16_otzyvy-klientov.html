@@ -7,15 +7,18 @@
   padding: 96px 0;
   background: #1b1b1b;
   border-top: 1px solid rgba(207,206,206,0.1);
+  overflow: hidden;
 }
-.bimpro-reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-reviews-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
 .bimpro-reviews-header { text-align: center; margin-bottom: 64px; }
 .bimpro-reviews h2 {
   font-family: 'BebasNeueCustom', sans-serif;
-  font-size: 48px;
+  font-size: clamp(32px, 6vw, 48px);
   color: #fff;
   margin-bottom: 16px;
   letter-spacing: 0.03em;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .bimpro-reviews-sub { color: #cfcece; max-width: 600px; margin: 0 auto; font-size: 16px; }
 .bimpro-reviews-grid {
@@ -25,6 +28,7 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+.bimpro-reviews-grid > * { min-width: 0; }
 /* Card */
 .bimpro-reviews-card {
   display: flex;
@@ -124,8 +128,23 @@
   padding: 0 4px;
 }
 
+@media (max-width: 1024px) {
+  .bimpro-reviews { padding: 72px 0; }
+  .bimpro-reviews-header { margin-bottom: 48px; }
+}
 @media (max-width: 768px) {
-  .bimpro-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .bimpro-reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 480px) {
+  .bimpro-reviews { padding: 56px 0; }
+  .bimpro-reviews-inner { padding: 0 16px; }
+  .bimpro-reviews-card h4 { font-size: 13px; }
+  .bimpro-reviews-card p { font-size: 11px; }
+  .bimpro-reviews-modal-overlay { padding: 12px; }
+  .bimpro-reviews-modal { height: 90vh; }
+  .bimpro-reviews-modal-left { padding: 24px 20px; }
+  .bimpro-reviews-modal-logo-wrap { width: 128px; height: 128px; margin-bottom: 16px; }
+  .bimpro-reviews-modal-right { padding: 16px; }
 }
 
 /* =========== MODAL =========== */
