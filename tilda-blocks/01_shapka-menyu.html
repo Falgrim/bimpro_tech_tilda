@@ -3,6 +3,21 @@
 <!-- ИЗОБРАЖЕНИЯ: header_logo.png — обновить URL после загрузки в библиотеку Tilda -->
 
 <style>
+/* Скрываем нативный header Tilda, чтобы не проступал при zoom */
+.t-header,
+#t-header,
+.t228,
+.t228__wrapper,
+.t228__imgwrapper {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
 .bimpro-nav {
   font-family: 'OnestCustom', sans-serif;
   position: fixed;
