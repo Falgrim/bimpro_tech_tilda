@@ -66,6 +66,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* TOP GRID */
@@ -101,12 +102,15 @@
 }
 .bimpro-hero h1 {
   font-family: 'BebasNeueCustom', sans-serif;
-  font-size: clamp(48px, 8vw, 80px);
+  font-size: clamp(36px, 8vw, 80px);
   line-height: 0.9;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 .bimpro-hero h1 span.accent {
   color: #e64317;
@@ -438,8 +442,9 @@
   padding: 64px 0;
   background: #1b1b1b;
   border-bottom: 1px solid rgba(207,206,206,0.1);
+  overflow: hidden;
 }
-.bimpro-herostats-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.bimpro-herostats-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
 .bimpro-herostats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -602,6 +607,12 @@
 }
 .bimpro-director-cred-sub span { color: #e64317; }
 
+/* Ensure grid/flex items can shrink below their content width on mobile */
+.bimpro-hero-grid > *,
+.bimpro-hero-cta-inner > *,
+.bimpro-herostats-grid > *,
+.bimpro-director-grid > * { min-width: 0; }
+
 /* Responsive */
 @media (max-width: 1024px) {
   .bimpro-hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -614,12 +625,38 @@
   .bimpro-director-grid { grid-template-columns: 1fr; }
   .bimpro-director-left { border-right: none; border-bottom: 1px solid rgba(207,206,206,0.1); }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .bimpro-hero-cta-dock { padding: 28px 24px; border-radius: 20px; }
+  .bimpro-hero-cta-dock h3 { margin-bottom: 16px; }
   .bimpro-hero-cta-form { flex-direction: column; }
   .bimpro-hero-cta-btn { width: 100%; justify-content: center; }
-  .bimpro-hero-cta-row2 { flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
+  .bimpro-hero-cta-row2 { flex-direction: column-reverse; align-items: stretch; gap: 12px; }
+  .bimpro-hero-cta-note { max-width: 100%; }
+  .bimpro-hero-cta-services { justify-content: center; }
+  .bimpro-herostats-cell4 { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .bimpro-herostats-badge-wrap { width: 64px; height: 64px; }
+  .bimpro-director-left,
+  .bimpro-director-right { padding: 28px; }
+  .bimpro-director-right { gap: 16px; }
+}
+@media (max-width: 640px) {
   .bimpro-hero { padding: 100px 0 48px; }
-  .bimpro-hero-cta-dock { padding: 24px; }
+  .bimpro-hero-cta-dock { padding: 20px; }
+  .bimpro-hero-desc { padding-left: 16px; }
+  .bimpro-herostats { padding: 48px 0; }
+  .bimpro-herostats-inner { padding: 0 16px; }
+  .bimpro-herostats-grid { gap: 20px; }
+  .bimpro-herostats-cell:nth-child(odd) { padding-right: 10px !important; }
+  .bimpro-hero-inner { padding: 0 16px; }
+  .bimpro-director { margin-top: 40px; }
+  .bimpro-director-left,
+  .bimpro-director-right { padding: 24px 20px; }
+  .bimpro-director-icon { width: 48px; height: 48px; }
+  .bimpro-director-icon svg { width: 24px; height: 24px; }
+}
+@media (max-width: 380px) {
+  .bimpro-herostats-grid { grid-template-columns: 1fr; gap: 16px; }
+  .bimpro-herostats-cell:nth-child(odd) { border-right: none !important; padding-right: 0 !important; border-bottom: 1px solid #e64317; padding-bottom: 16px !important; }
 }
 </style>
 
