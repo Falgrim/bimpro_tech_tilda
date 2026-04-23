@@ -355,8 +355,25 @@
   flex-direction: column;
   gap: 20px;
   min-width: 0;
+  position: relative;
+  z-index: 2;
 }
+.bimpro-hero-cta-form-wrap { position: relative; z-index: 10; pointer-events: auto; }
 .bimpro-hero-cta-form { display: flex; gap: 12px; align-items: stretch; }
+.bimpro-hero-form-success {
+  display: none;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(230,67,23,0.12);
+  border: 1px solid rgba(230,67,23,0.35);
+  color: #cfcece;
+  font-family: 'OnestCustom', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+}
+.bimpro-hero-cta-btn.bimpro-btn-pressed { transform: scale(0.98) !important; opacity: 0.95; }
 .bimpro-hero-cta-input-wrap { position: relative; flex: 1 1 auto; min-width: 0; }
 .bimpro-hero-cta-input-icon {
   position: absolute;
@@ -770,17 +787,25 @@
 
         <!-- RIGHT: FORM + ACTIONS -->
         <div class="bimpro-hero-cta-form-side">
-          <form class="bimpro-hero-cta-form" onsubmit="return false;">
-            <div class="bimpro-hero-cta-input-wrap">
-              <div class="bimpro-hero-cta-input-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.40 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <!-- ОТПРАВКА: Formspree (xaqdkwzv). В кабинете Formspree — уведомления на inc@bimpro.ru -->
+          <iframe name="bimpro-frame-02" style="position:absolute;width:0;height:0;border:0;visibility:hidden;" title=""></iframe>
+          <form id="bimpro-form-02" class="bimpro-hero-cta-form-wrap" action="https://formspree.io/f/xaqdkwzv" method="post" target="bimpro-frame-02">
+            <input type="hidden" name="_subject" value="Заявка: Рассчитать стоимость (герой, блок 2)">
+            <div class="bimpro-form-fields">
+              <div class="bimpro-hero-cta-form">
+                <div class="bimpro-hero-cta-input-wrap">
+                  <div class="bimpro-hero-cta-input-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.40 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <input type="tel" name="Phone" class="bimpro-hero-cta-input" placeholder="+7 (999) 000-00-00" required>
+                </div>
+                <button type="button" class="bimpro-hero-cta-btn" id="hero-calc-btn" onclick="var f=document.getElementById('bimpro-form-02'),btn=this,fields=f.querySelector('.bimpro-form-fields'),ok=f.querySelector('.bimpro-hero-form-success');if(f&amp;&amp;f.reportValidity()){btn.classList.add('bimpro-btn-pressed');f.submit();if(fields)fields.style.display='none';if(ok){ok.textContent='Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.';ok.style.display='block';}setTimeout(function(){btn.classList.remove('bimpro-btn-pressed');},400);}">
+                  Рассчитать стоимость
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
               </div>
-              <input type="tel" class="bimpro-hero-cta-input" placeholder="+7 (999) 000-00-00">
             </div>
-            <button class="bimpro-hero-cta-btn" id="hero-calc-btn">
-              Рассчитать стоимость
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
+            <div class="bimpro-hero-form-success" style="display:none;">Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.</div>
           </form>
           <div class="bimpro-hero-cta-row2">
             <div class="bimpro-hero-cta-note">Оставьте телефон, и наш инженер свяжется с вами для бесплатного аудита ваших исходных чертежей.</div>

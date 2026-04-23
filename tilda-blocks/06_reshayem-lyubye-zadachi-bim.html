@@ -1,6 +1,6 @@
 <!-- БЛОК 6: Решаем любые задачи в BIM -->
 <!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
-<!-- ОТПРАВКА: Formspree → welcome@bimpro.ru (ID: xaqdkwzv). Поля Name, Phone. -->
+<!-- ОТПРАВКА: Formspree (ID: xaqdkwzv). В кабинете Formspree укажите уведомления на inc@bimpro.ru. Поля: Name, Phone. -->
 
 <style>
 .bimpro-tasks {
@@ -137,9 +137,9 @@
               <input type="text" name="Name" placeholder="Ваше имя" required>
               <input type="tel" name="Phone" placeholder="+7 (999) 000-00-00" required>
             </div>
-            <button type="button" class="bimpro-tasks-form-btn" onclick="var f=document.getElementById('bimpro-form-06'),btn=this,fields=f.querySelector('.bimpro-form-fields'),ok=f.querySelector('.bimpro-form-success');if(f&amp;&amp;f.reportValidity()){btn.classList.add('bimpro-btn-pressed');f.submit();if(fields)fields.style.display='none';if(ok){ok.textContent='Заявка отправлена! Мы свяжемся с вами.';ok.style.display='block';}setTimeout(function(){btn.classList.remove('bimpro-btn-pressed');},400);}">Обсудить задачу</button>
+            <button type="button" class="bimpro-tasks-form-btn" onclick="var f=document.getElementById('bimpro-form-06'),btn=this,fields=f.querySelector('.bimpro-form-fields'),ok=f.querySelector('.bimpro-form-success');if(f&amp;&amp;f.reportValidity()){btn.classList.add('bimpro-btn-pressed');f.submit();if(fields)fields.style.display='none';if(ok){ok.textContent='Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.';ok.style.display='block';}setTimeout(function(){btn.classList.remove('bimpro-btn-pressed');},400);}">Обсудить задачу</button>
           </div>
-          <div class="bimpro-form-success" style="display:none;">Заявка отправлена! Мы свяжемся с вами.</div>
+          <div class="bimpro-form-success" style="display:none;">Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.</div>
           <p class="bimpro-tasks-form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
         </form>
       </div>

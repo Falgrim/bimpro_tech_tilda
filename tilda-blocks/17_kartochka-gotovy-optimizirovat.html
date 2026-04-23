@@ -1,5 +1,6 @@
 <!-- БЛОК 17: Готовы оптимизировать ваш проект? -->
 <!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
+<!-- ОТПРАВКА: Formspree (xaqdkwzv). В кабинете Formspree укажите уведомления на inc@bimpro.ru -->
 
 <style>
 .bimpro-contact-section {
@@ -90,6 +91,17 @@
   box-shadow: 0 0 20px rgba(230,67,23,0.3);
 }
 .bimpro-cta-submit:hover { background: #d13a12; transform: scale(1.01); }
+.bimpro-cta-submit:active,
+.bimpro-cta-submit.bimpro-btn-pressed { background: #b83210 !important; transform: scale(0.98) !important; opacity: 0.95; }
+.bimpro-form-success {
+  display: none;
+  padding: 20px 0 8px;
+  color: #e64317;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.4;
+}
 .bimpro-cta-privacy-note {
   font-size: 12px;
   color: rgba(207,206,206,0.5);
@@ -120,10 +132,15 @@
       <div class="bimpro-cta-form-card">
         <h2>Готовы оптимизировать ваш проект?</h2>
         <p>Оставьте заявку на бесплатный аудит ваших исходных чертежей. Мы покажем, где вы можете сэкономить.</p>
-        <form class="bimpro-cta-form" onsubmit="return false;">
-          <input type="text" placeholder="Ваше имя" class="bimpro-cta-input">
-          <input type="tel" placeholder="+7 (999) 000-00-00" class="bimpro-cta-input">
-          <button type="submit" class="bimpro-cta-submit">Получить консультацию</button>
+        <iframe name="bimpro-frame-17" style="position:absolute;width:0;height:0;border:0;visibility:hidden;" title=""></iframe>
+        <form id="bimpro-form-17" class="bimpro-cta-form" action="https://formspree.io/f/xaqdkwzv" method="post" target="bimpro-frame-17">
+          <input type="hidden" name="_subject" value="Заявка: Получить консультацию (блок 17)">
+          <div class="bimpro-form-fields">
+            <input type="text" name="Name" placeholder="Ваше имя" class="bimpro-cta-input" required>
+            <input type="tel" name="Phone" placeholder="+7 (999) 000-00-00" class="bimpro-cta-input" required>
+            <button type="button" class="bimpro-cta-submit" onclick="var f=document.getElementById('bimpro-form-17'),btn=this,fields=f.querySelector('.bimpro-form-fields'),ok=f.querySelector('.bimpro-form-success');if(f&amp;&amp;f.reportValidity()){btn.classList.add('bimpro-btn-pressed');f.submit();if(fields)fields.style.display='none';if(ok){ok.textContent='Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.';ok.style.display='block';}setTimeout(function(){btn.classList.remove('bimpro-btn-pressed');},400);}">Получить консультацию</button>
+          </div>
+          <div class="bimpro-form-success" style="display:none;">Заявка отправлена. Данные переданы в компанию — мы свяжемся с вами.</div>
           <p class="bimpro-cta-privacy-note">
             Нажимая кнопку, вы соглашаетесь с <button type="button" class="bimpro-cta-privacy-btn" id="bimpro-open-privacy-1">политикой конфиденциальности</button>.
           </p>
