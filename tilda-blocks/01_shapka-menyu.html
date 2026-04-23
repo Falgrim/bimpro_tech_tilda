@@ -57,7 +57,15 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   align-items: flex-end;
   line-height: 0;
 }
-.bimpro-nav-logo { display: block; height: 40px; width: auto; object-fit: contain; }
+/* #allrecords img { height: auto } выше по коду сильнее .bimpro-nav-logo — фиксируем явно */
+#allrecords .bimpro-nav img.bimpro-nav-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  vertical-align: bottom;
+}
 .bimpro-nav-links { display: flex; align-items: center; gap: 32px; }
 .bimpro-nav-link {
   font-size: 13px;
@@ -238,13 +246,17 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .bimpro-nav-hamburger { display: flex; }
 }
 
-/* Десктоп: общий нижний край логотипа и пунктов меню (в т.ч. с блоком телефона 50px) */
+/* Десктоп: нижний край слова bimpro (нижний край файла логотипа) = нижний край капительных букв меню.
+   У ссылок меню есть padding-bottom: 4px под линию hover — без сдвига логотип визуально «ниже» глифов. */
 @media (min-width: 1025px) {
   .bimpro-nav-inner {
     align-items: flex-end;
   }
   .bimpro-nav-links {
     align-items: flex-end;
+  }
+  #allrecords .bimpro-nav img.bimpro-nav-logo {
+    transform: translateY(-5px);
   }
 }
 </style>
