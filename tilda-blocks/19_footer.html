@@ -372,32 +372,8 @@
 </section>
 
 <script>
-  // Убираем белые полосы вокруг футера в Тильде (фон и отступы)
-  var BIMPRO_F_TEL = 'tel:+78123301040';
-  var BIMPRO_F_LAB = '+7 812 330 10 40';
-  function bimproFooterApplyPhone(){
-    document.querySelectorAll('a.bimpro-footer-phone').forEach(function(a){
-      if((a.getAttribute('href') || '') !== BIMPRO_F_TEL) a.setAttribute('href', BIMPRO_F_TEL);
-      if((a.textContent || '').trim() !== BIMPRO_F_LAB) a.textContent = BIMPRO_F_LAB;
-    });
-  }
-  function bimproFooterPhoneGuard(){
-    bimproFooterApplyPhone();
-    var deb;
-    function sch(){ clearTimeout(deb); deb = setTimeout(bimproFooterApplyPhone, 15); }
-    if(typeof MutationObserver !== 'undefined'){
-      var sec = document.getElementById('bimpro-footer-section');
-      if(sec){
-        var mo = new MutationObserver(sch);
-        mo.observe(sec, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
-      }
-    }
-    var n = 0;
-    var iv = setInterval(function(){
-      bimproFooterApplyPhone();
-      if(++n >= 40) clearInterval(iv);
-    }, 400);
-  }
+  // Убираем белые полосы вокруг футера в Тильде (фон и отступы).
+  // Телефон в футере правится в HTML этого блока; резервная синхронизация tel: — в блоке 01 (шапка).
   function bimproFooterOnReady(){
     var block = document.getElementById('bimpro-footer-section');
     if (block) {
@@ -408,14 +384,12 @@
         tRec.style.paddingBottom = '0';
       }
     }
-    bimproFooterPhoneGuard();
   }
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', bimproFooterOnReady);
   } else {
     bimproFooterOnReady();
   }
-  window.addEventListener('load', bimproFooterApplyPhone);
 </script>
 
 <!-- PRIVACY MODAL -->

@@ -1,6 +1,17 @@
 <!-- БЛОК 1: Шапка/Меню (V4) -->
 <!-- Вставьте в Tilda: Zero Block (T123) → HTML-код -->
 <!-- ИЗОБРАЖЕНИЯ: header_logo.png — обновить URL после загрузки в библиотеку Tilda -->
+<!--
+  ТЕЛЕФОН В TILDA (если на сайте снова «старый» номер):
+  1) Настройки сайта → Контакты / телефон проекта — иногда подставляется в формы и виджеты.
+  2) Настройки сайта → HTML-код в HEAD / перед </body> — поиск по цифрам номера (Ctrl+F в редакторе).
+  3) Дублирующий блок шапки/футера (старый Zero или стандартный блок с телефоном) выше/ниже вашего кода.
+  4) Формы (t-form): поле «телефон по умолчанию», уведомления на email/SMS, виджет обратного звонка.
+  5) Интеграции: Jivo, Carrot quest, Roistat, коллтрекинг — часто переписывают tel: в DOM после загрузки.
+  6) После правок — «Опубликовать все страницы» и сброс кэша CDN/браузера; сравнить «Просмотр кода» с актуальным Zero-блоком.
+
+  Диагностика: откройте страницу с ?bimproPhoneDebug=1 — в консоли (F12) будут сообщения о смене href/текста у ссылок телефона.
+-->
 
 <style>
 /* ============================================================
@@ -313,9 +324,45 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 <script>
 (function(){
-  /* Единый номер для шапки и футера (перебивает устаревший HTML в редакторе Tilda) */
+  /* Резерв: единый номер, если сторонний скрипт Tilda/виджет позже меняет tel: в DOM.
+     Источник правды — HTML Zero-блоков и настройки проекта; см. HTML-комментарий выше. */
   var BIMPRO_CANON_TEL = 'tel:+78123301040';
   var BIMPRO_CANON_LABEL = '+7 812 330 10 40';
+  if(/(?:\?|&)bimproPhoneDebug=1(?:&|$)/.test(location.search)){
+    (function bimproPhoneDebug(){
+      var root = document.getElementById('allrecords') || document.body;
+      if(!root) return;
+      function tag(el){ try{ return el && el.outerHTML ? el.outerHTML.slice(0, 180) : String(el); }catch(e){ return ''; } }
+      function log(msg, extra){ try{ console.warn('[bimproPhoneDebug]', msg, extra || ''); }catch(e){} }
+      log('слежение за href/вставками (без шума от канонического номера); уберите параметр из URL после проверки');
+      var sel = 'a.bimpro-nav-phone, a.bimpro-footer-phone, a.bimpro-nav-mobile-call';
+      var mo = new MutationObserver(function(muts){
+        muts.forEach(function(m){
+          if(m.type === 'attributes' && m.attributeName === 'href' && m.target && m.target.matches && m.target.matches(sel)){
+            var oldH = m.oldValue != null ? m.oldValue : '';
+            var newH = m.target.getAttribute('href') || '';
+            if(newH !== BIMPRO_CANON_TEL || (oldH === BIMPRO_CANON_TEL && newH !== BIMPRO_CANON_TEL)){
+              log('смена href', oldH + ' → ' + newH + ' | ' + tag(m.target));
+            }
+          }
+          if(m.type === 'childList'){
+            m.addedNodes && m.addedNodes.forEach && m.addedNodes.forEach(function(n){
+              if(n.nodeType !== 1) return;
+              if(n.matches && n.matches(sel)){
+                var h = n.getAttribute('href') || '';
+                if(h !== BIMPRO_CANON_TEL) log('вставлена ссылка (href не канон)', tag(n));
+              }
+              if(n.querySelector){
+                var q = n.querySelector(sel);
+                if(q && (q.getAttribute('href') || '') !== BIMPRO_CANON_TEL) log('внутри вставки — телефон с другим href', tag(q));
+              }
+            });
+          }
+        });
+      });
+      mo.observe(root, { subtree: true, childList: true, attributes: true, attributeOldValue: true, attributeFilter: ['href'] });
+    })();
+  }
   function bimproApplyCanonicalPhones(){
     var navPhone = document.getElementById('bimpro-nav-phone');
     if(navPhone){
@@ -348,11 +395,6 @@ html, body { overflow-x: hidden; max-width: 100vw; }
         moFoot.observe(footSec, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
       }
     }
-    var n = 0;
-    var iv = setInterval(function(){
-      bimproApplyCanonicalPhones();
-      if(++n >= 40) clearInterval(iv);
-    }, 400);
   }
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', bimproStartPhoneGuard);
