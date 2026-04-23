@@ -373,6 +373,14 @@
 
 <script>
   // Убираем белые полосы вокруг футера в Тильде (фон и отступы)
+  function bimproFooterApplyPhone(){
+    var tel = 'tel:+78123301040';
+    var lab = '+7 812 330 10 40';
+    document.querySelectorAll('a.bimpro-footer-phone').forEach(function(a){
+      a.setAttribute('href', tel);
+      a.textContent = lab;
+    });
+  }
   document.addEventListener('DOMContentLoaded', function() {
     var block = document.getElementById('bimpro-footer-section');
     if (block) {
@@ -383,7 +391,9 @@
         tRec.style.paddingBottom = '0';
       }
     }
+    bimproFooterApplyPhone();
   });
+  setTimeout(bimproFooterApplyPhone, 300);
 </script>
 
 <!-- PRIVACY MODAL -->

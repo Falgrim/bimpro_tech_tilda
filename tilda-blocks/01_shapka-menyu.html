@@ -313,6 +313,30 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 <script>
 (function(){
+  /* Единый номер для шапки и футера (перебивает устаревший HTML в редакторе Tilda) */
+  var BIMPRO_CANON_TEL = 'tel:+78123301040';
+  var BIMPRO_CANON_LABEL = '+7 812 330 10 40';
+  function bimproApplyCanonicalPhones(){
+    var navPhone = document.getElementById('bimpro-nav-phone');
+    if(navPhone){
+      navPhone.setAttribute('href', BIMPRO_CANON_TEL);
+      navPhone.textContent = BIMPRO_CANON_LABEL;
+    }
+    document.querySelectorAll('a.bimpro-footer-phone').forEach(function(a){
+      a.setAttribute('href', BIMPRO_CANON_TEL);
+      a.textContent = BIMPRO_CANON_LABEL;
+    });
+    document.querySelectorAll('a.bimpro-nav-mobile-call').forEach(function(a){
+      if(/^tel:/i.test(a.getAttribute('href') || '')) a.setAttribute('href', BIMPRO_CANON_TEL);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bimproApplyCanonicalPhones);
+  } else {
+    bimproApplyCanonicalPhones();
+  }
+  setTimeout(bimproApplyCanonicalPhones, 300);
+
   var nav = document.querySelector('.bimpro-nav');
   var phone = document.getElementById('bimpro-nav-phone');
   var cta = document.getElementById('bimpro-nav-cta');
