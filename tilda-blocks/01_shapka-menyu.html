@@ -319,36 +319,58 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   function bimproApplyCanonicalPhones(){
     var navPhone = document.getElementById('bimpro-nav-phone');
     if(navPhone){
-      navPhone.setAttribute('href', BIMPRO_CANON_TEL);
-      navPhone.textContent = BIMPRO_CANON_LABEL;
+      if((navPhone.getAttribute('href') || '') !== BIMPRO_CANON_TEL) navPhone.setAttribute('href', BIMPRO_CANON_TEL);
+      if((navPhone.textContent || '').trim() !== BIMPRO_CANON_LABEL) navPhone.textContent = BIMPRO_CANON_LABEL;
     }
     document.querySelectorAll('a.bimpro-footer-phone').forEach(function(a){
-      a.setAttribute('href', BIMPRO_CANON_TEL);
-      a.textContent = BIMPRO_CANON_LABEL;
+      if((a.getAttribute('href') || '') !== BIMPRO_CANON_TEL) a.setAttribute('href', BIMPRO_CANON_TEL);
+      if((a.textContent || '').trim() !== BIMPRO_CANON_LABEL) a.textContent = BIMPRO_CANON_LABEL;
     });
     document.querySelectorAll('a.bimpro-nav-mobile-call').forEach(function(a){
-      if(/^tel:/i.test(a.getAttribute('href') || '')) a.setAttribute('href', BIMPRO_CANON_TEL);
+      if(/^tel:/i.test(a.getAttribute('href') || '') && (a.getAttribute('href') || '') !== BIMPRO_CANON_TEL){
+        a.setAttribute('href', BIMPRO_CANON_TEL);
+      }
     });
   }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', bimproApplyCanonicalPhones);
-  } else {
+  function bimproStartPhoneGuard(){
     bimproApplyCanonicalPhones();
+    var deb;
+    function schedule(){ clearTimeout(deb); deb = setTimeout(bimproApplyCanonicalPhones, 15); }
+    if(typeof MutationObserver !== 'undefined'){
+      var navEl = document.querySelector('.bimpro-nav');
+      if(navEl){
+        var moNav = new MutationObserver(schedule);
+        moNav.observe(navEl, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
+      }
+      var footSec = document.getElementById('bimpro-footer-section');
+      if(footSec){
+        var moFoot = new MutationObserver(schedule);
+        moFoot.observe(footSec, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
+      }
+    }
+    var n = 0;
+    var iv = setInterval(function(){
+      bimproApplyCanonicalPhones();
+      if(++n >= 40) clearInterval(iv);
+    }, 400);
   }
-  setTimeout(bimproApplyCanonicalPhones, 300);
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bimproStartPhoneGuard);
+  } else {
+    bimproStartPhoneGuard();
+  }
+  window.addEventListener('load', bimproApplyCanonicalPhones);
 
   var nav = document.querySelector('.bimpro-nav');
-  var phone = document.getElementById('bimpro-nav-phone');
   var cta = document.getElementById('bimpro-nav-cta');
   var hamburger = document.getElementById('bimpro-nav-hamburger');
   var mobileMenu = document.getElementById('bimpro-nav-mobile');
 
   function handleScroll(){
     var scrollY = window.scrollY || window.pageYOffset;
-    if(scrollY > 20){
-      nav.classList.add('is-scrolled');
-    } else {
-      nav.classList.remove('is-scrolled');
+    if(nav){
+      if(scrollY > 20){ nav.classList.add('is-scrolled'); }
+      else { nav.classList.remove('is-scrolled'); }
     }
     var heroBtn = document.getElementById('hero-calc-btn');
     var showCta = false;
@@ -358,12 +380,13 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     } else {
       showCta = scrollY > 600;
     }
-    if(phone && cta){
+    var phoneEl = document.getElementById('bimpro-nav-phone');
+    if(phoneEl && cta){
       if(showCta){
-        phone.classList.add('is-hidden');
+        phoneEl.classList.add('is-hidden');
         cta.classList.add('is-visible');
       } else {
-        phone.classList.remove('is-hidden');
+        phoneEl.classList.remove('is-hidden');
         cta.classList.remove('is-visible');
       }
     }
