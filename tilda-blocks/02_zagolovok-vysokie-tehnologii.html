@@ -674,8 +674,25 @@
 @media (max-width: 640px) {
   .bimpro-hero { padding: 100px 0 48px; }
   .bimpro-hero-cta-dock { padding: 24px 20px; }
-  .bimpro-hero-cta-form { flex-direction: column; }
-  .bimpro-hero-cta-btn { width: 100%; padding: 18px 24px 10px; }
+  .bimpro-hero-cta-form {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  /* Не даём полю тянуться по высоте flex-родителя — иначе кнопка визуально наезжает на input */
+  .bimpro-hero-cta-input-wrap {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .bimpro-hero-cta-input {
+    height: auto;
+    min-height: 52px;
+  }
+  .bimpro-hero-cta-btn {
+    width: 100%;
+    padding: 18px 24px 10px;
+    margin-top: 6px;
+  }
   .bimpro-hero-cta-row2 { flex-direction: column-reverse; align-items: stretch; gap: 14px; padding: 0; }
   .bimpro-hero-cta-note { max-width: 100%; text-align: center; }
   .bimpro-hero-cta-services { width: 100%; }

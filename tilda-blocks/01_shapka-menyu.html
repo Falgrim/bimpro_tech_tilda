@@ -51,7 +51,13 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   justify-content: space-between;
   align-items: center;
 }
-.bimpro-nav-logo { height: 40px; width: auto; object-fit: contain; }
+/* Ссылка с логотипом: убираем «десцендерный» зазор под img, нижний край картинки = нижний край ссылки */
+.bimpro-nav-inner > a:first-of-type {
+  display: inline-flex;
+  align-items: flex-end;
+  line-height: 0;
+}
+.bimpro-nav-logo { display: block; height: 40px; width: auto; object-fit: contain; }
 .bimpro-nav-links { display: flex; align-items: center; gap: 32px; }
 .bimpro-nav-link {
   font-size: 13px;
@@ -230,6 +236,16 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 @media (max-width: 1024px) {
   .bimpro-nav-links { display: none; }
   .bimpro-nav-hamburger { display: flex; }
+}
+
+/* Десктоп: общий нижний край логотипа и пунктов меню (в т.ч. с блоком телефона 50px) */
+@media (min-width: 1025px) {
+  .bimpro-nav-inner {
+    align-items: flex-end;
+  }
+  .bimpro-nav-links {
+    align-items: flex-end;
+  }
 }
 </style>
 
